@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/pokeback"
     tools:context=".views.MainActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -24,11 +25,11 @@
 
     <include layout="@layout/content_main" />
 
-    <Button
+    <Button style="@style/Widget.AppCompat.Button.Colored"
         android:id="@+id/play_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/start_game" />
+        android:text="@string/play" />
 
 </android.support.design.widget.CoordinatorLayout>
