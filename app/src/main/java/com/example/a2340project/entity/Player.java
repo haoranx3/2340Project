@@ -57,7 +57,7 @@ public class Player {
     }
 
     public void setFighter(int f) {
-        fighter = p;
+        fighter = f;
     }
 
     public int getTrader() {
