@@ -72,6 +72,12 @@ public class Player {
         this.difficulties = difficulties;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Player: %s, game difficulties: %s, pilot skills: %d, trader skills: %d, fighter skills: %d, " +
+                "engineering skills: %d");
+    }
+
 
 
 }
