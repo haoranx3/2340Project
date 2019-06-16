@@ -1,8 +1,10 @@
 package com.example.a2340project.views;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Gravity;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
@@ -41,7 +43,6 @@ public class createPlayerActivity extends AppCompatActivity {
     private Button createButton;
     private Player player;
 
-    private boolean noPointsLeft;
     private int numPoints;
 
 
@@ -73,7 +74,6 @@ public class createPlayerActivity extends AppCompatActivity {
 
         createButton = findViewById(R.id.createButton);
 
-        noPointsLeft = false;
         numPoints = 16;
 
         sailorMinus.setOnClickListener(new View.OnClickListener() {
@@ -191,10 +191,25 @@ public class createPlayerActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (usernameField.getText().toString() == "" || numPoints != 0) {
-                    Toast.makeText(getApplicationContext(), "Can't do that!", Toast.LENGTH_LONG).show();
+                int usernameLength = usernameField.getText().toString().trim().length();
+                if (usernameLength == 0 || numPoints != 0) {
+                    String err = (usernameLength == 0) ? "Must enter a username!" : "Must allocate all points!";
+                    Toast toast = Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0,0);
+                    toast.show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "To be implemented later", Toast.LENGTH_LONG).show();
+                    String username = usernameField.getText().toString();
+                    int sailorSkills = Integer.parseInt(sailorPoints.getText().toString());
+                    int trainerSkills = Integer.parseInt(trainerPoints.getText().toString());
+                    int traderSkills = Integer.parseInt(traderPoints.getText().toString());
+                    int engineerSkills = Integer.parseInt(engineerPoints.getText().toString());
+                    Intent displayPlayerIntent = new Intent(getApplicationContext(), displayPlayerActivity.class);
+                    displayPlayerIntent.putExtra("username", username);
+                    displayPlayerIntent.putExtra("sailorPoints", sailorSkills);
+                    displayPlayerIntent.putExtra("trainerPoints", trainerSkills);
+                    displayPlayerIntent.putExtra("traderPoints", traderSkills);
+                    displayPlayerIntent.putExtra("engineerPoints", engineerSkills);
+                    startActivity(displayPlayerIntent);
                 }
             }
         });
