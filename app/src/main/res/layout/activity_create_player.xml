@@ -32,7 +32,7 @@
         app:srcCompat="@drawable/chatbox" />
 
     <TextView
-        android:id="@+id/welcomeText"
+        android:id="@+id/confirmText"
         android:layout_width="249dp"
         android:layout_height="60dp"
         android:layout_alignTop="@+id/chatbox"
@@ -244,6 +244,7 @@
         android:layout_marginStart="300dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="215dp"
+        android:background="#1C69B8"
         android:minWidth="30dip"
         android:minHeight="30dip"
         android:text="@string/minus"
@@ -262,6 +263,7 @@
         android:layout_marginStart="370dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="215dp"
+        android:background="#1C69B8"
         android:minWidth="30dip"
         android:minHeight="30dip"
         android:text="@string/plus"
@@ -327,6 +329,7 @@
         android:layout_marginStart="300dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="15dp"
+        android:background="#1C69B8"
         android:minWidth="30dip"
         android:minHeight="30dip"
         android:text="@string/minus"
@@ -346,6 +349,7 @@
         android:layout_marginStart="370dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="15dp"
+        android:background="#1C69B8"
         android:minWidth="30dip"
         android:minHeight="30dip"
         android:text="@string/plus"
@@ -411,6 +415,7 @@
         android:layout_marginStart="300dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="15dp"
+        android:background="#1C69B8"
         android:minWidth="30dip"
         android:minHeight="30dip"
         android:text="@string/minus"
@@ -430,6 +435,7 @@
         android:layout_marginStart="370dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="15dp"
+        android:background="#1C69B8"
         android:minWidth="30dip"
         android:minHeight="30dip"
         android:text="@string/plus"
@@ -495,6 +501,7 @@
         android:layout_marginStart="300dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="15dp"
+        android:background="#1C69B8"
         android:minWidth="30dip"
         android:minHeight="30dip"
         android:text="@string/minus"
@@ -514,6 +521,7 @@
         android:layout_marginStart="370dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="15dp"
+        android:background="#1C69B8"
         android:minWidth="30dip"
         android:minHeight="30dip"
         android:text="@string/plus"
@@ -533,6 +541,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="20dp"
+        android:background="#1C69B8"
         android:text="@string/create" />
 
 </RelativeLayout>

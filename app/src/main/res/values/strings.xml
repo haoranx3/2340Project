@@ -15,5 +15,13 @@
     <string name="create">Begin</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
+    <string name="difficulty">Select Difficulty</string>
+    <string name="easy">Easy</string>
+    <string name="normal">Normal</string>
+    <string name="hard">Hard</string>
+    <string name="impossible">Impossible</string>
+    <string name="confirm">Right...\nSo your name is</string>
+    <string name="yes">Confirm</string>
+    <string name="no">Cancel</string>
 </resources>
 
