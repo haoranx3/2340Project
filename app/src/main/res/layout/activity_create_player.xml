@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.MainActivity">
+    tools:context=".views.createPlayerActivity">
 
     <TextView
         android:id="@+id/Player_id_field"
@@ -15,14 +15,16 @@
         android:layout_alignParentLeft="true" />
 
     <TextView
-        android:text="Name:"
+        android:id="@+id/name_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/name_header"
         android:layout_below="@id/Player_id_field"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="11dp" />
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="6dp"
+        android:text="Name:" />
 
     <EditText
         android:id="@+id/player_name_input"
@@ -31,10 +33,12 @@
         android:layout_below="@id/name_header"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="3dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="Username"
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/Pilot_skill_header"
@@ -43,21 +47,22 @@
         android:layout_below="@id/player_name_input"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="-1dp"
-        android:layout_marginLeft="-1dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="21dp"
         android:text="Pilot Skill:" />
 
-    <Spinner
+    <EditText
         android:id="@+id/PilotSkill_spinner"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/Pilot_skill_header"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="3dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="13dp"
+        android:inputType="number"/>
 
     <TextView
         android:id="@+id/Fighter_skill_header"
@@ -66,21 +71,22 @@
         android:layout_below="@id/PilotSkill_spinner"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="-2dp"
-        android:layout_marginLeft="-2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="20dp"
         android:text="Fighter Skill:" />
 
-    <Spinner
+    <EditText
         android:id="@+id/FighterSkill_spinner"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/Fighter_skill_header"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="2dp" />
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="12dp"
+        android:inputType="number"/>
 
     <TextView
         android:id="@+id/Trader_skill_header"
@@ -89,19 +95,22 @@
         android:layout_below="@id/FighterSkill_spinner"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="-2dp"
-        android:layout_marginLeft="-2dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
         android:layout_marginTop="20dp"
         android:text="Trader Skill:" />
 
-    <Spinner
+    <android.support.design.widget.TextInputEditText
         android:id="@+id/TraderSkill_spinner"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/Trader_skill_header"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="3dp" />
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="11dp"
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/Engineer_skill_header"
@@ -110,17 +119,22 @@
         android:layout_below="@id/TraderSkill_spinner"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="21dp"
         android:text="Engineer Skill:" />
 
-    <Spinner
+    <android.inputmethodservice.ExtractEditText
         android:id="@+id/EngineerSkill_spinner"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/Engineer_skill_header"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="3dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="13dp"
+        android:inputType="number"/>
 
     <TextView
         android:id="@+id/Difficulty_header"
@@ -129,6 +143,8 @@
         android:layout_below="@id/EngineerSkill_spinner"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
         android:layout_marginTop="20dp"
         android:text="Difficulty:" />
 
@@ -139,7 +155,9 @@
         android:layout_below="@id/Difficulty_header"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="3dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="11dp" />
 
     <Button
         android:text="Add"

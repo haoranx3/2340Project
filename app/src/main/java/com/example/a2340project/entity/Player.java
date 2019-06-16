@@ -10,10 +10,14 @@ public class Player {
     private String difficulties;
     private int pilot;
     private int fighter;
+
     private int trader;
     private int engineering;
 
-    private static List<String> diffList = Arrays.asList("Beginners", "Easy", "Normal", "Hard", "Impossible");
+    /** a globally unique number for this object */
+    private int id;
+
+    public static List<String> diffList = Arrays.asList("Beginners", "Easy", "Normal", "Hard", "Impossible");
 
     public Player() {
         this("default_player", "Beginner", 4, 4, 4, 4);
@@ -26,6 +30,10 @@ public class Player {
         fighter = f;
         trader = t;
         engineering = e;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getUserName() {
@@ -64,6 +72,10 @@ public class Player {
         return trader;
     }
 
+    public void setTrader(int trader) {
+        this.trader = trader;
+    }
+
     public String getDifficulties() {
         return difficulties;
     }
@@ -72,10 +84,14 @@ public class Player {
         this.difficulties = difficulties;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return String.format("Player: %s, game difficulties: %s, pilot skills: %d, trader skills: %d, fighter skills: %d, " +
-                "engineering skills: %d");
+                "engineering skills: %d ID: %d\n", userName, difficulties, pilot, trader, fighter, engineering, id);
     }
 
 

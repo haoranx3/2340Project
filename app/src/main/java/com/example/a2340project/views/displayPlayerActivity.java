@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.a2340project.R;
 
-public class display_player extends AppCompatActivity {
+public class displayPlayerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
