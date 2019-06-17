@@ -11,6 +11,9 @@ public class Player {
     private int pilot;
     private int fighter;
 
+    private int credits = 1000;
+    private Ship ship = new Ship("Gnat");
+
     private int trader;
     private int engineering;
 

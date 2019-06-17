@@ -209,6 +209,7 @@ public class createPlayerActivity extends AppCompatActivity {
                     displayPlayerIntent.putExtra("trainerPoints", trainerSkills);
                     displayPlayerIntent.putExtra("traderPoints", traderSkills);
                     displayPlayerIntent.putExtra("engineerPoints", engineerSkills);
+                    displayPlayerIntent.putExtra("diff", getIntent().getStringExtra("diff"));
                     startActivity(displayPlayerIntent);
                 }
             }

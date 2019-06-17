@@ -29,6 +29,7 @@ public class selectDifficultyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent createPlayerScreenIntent = new Intent(getApplicationContext(), createPlayerActivity.class);
+                createPlayerScreenIntent.putExtra("diff", "Easy");
                 startActivity(createPlayerScreenIntent);
             }
         });
@@ -37,6 +38,7 @@ public class selectDifficultyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent createPlayerScreenIntent = new Intent(getApplicationContext(), createPlayerActivity.class);
+                createPlayerScreenIntent.putExtra("diff", "Normal");
                 startActivity(createPlayerScreenIntent);
             }
         });
@@ -45,6 +47,7 @@ public class selectDifficultyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent createPlayerScreenIntent = new Intent(getApplicationContext(), createPlayerActivity.class);
+                createPlayerScreenIntent.putExtra("diff", "Hard");
                 startActivity(createPlayerScreenIntent);
             }
         });
@@ -53,6 +56,7 @@ public class selectDifficultyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent createPlayerScreenIntent = new Intent(getApplicationContext(), createPlayerActivity.class);
+                createPlayerScreenIntent.putExtra("diff", "Impossible");
                 startActivity(createPlayerScreenIntent);
             }
         });
