@@ -108,6 +108,8 @@ public class displayPlayerActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER, 0,0);
                 toast.show();
+                Intent createRegionIntent = new Intent(getApplicationContext(), createRegionActivity.class);
+                startActivity(createRegionIntent);
             }
         });
 

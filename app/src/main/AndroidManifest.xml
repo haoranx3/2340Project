@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.displayPlayerActivity"></activity>
-        <activity android:name=".views.selectDifficultyActivity"></activity>
+        <activity android:name=".views.createRegionActivity"/>
+        <activity android:name=".views.displayPlayerActivity" />
+        <activity android:name=".views.selectDifficultyActivity" />
         <activity android:name=".views.createPlayerActivity" />
         <activity
             android:name=".views.MainActivity"
