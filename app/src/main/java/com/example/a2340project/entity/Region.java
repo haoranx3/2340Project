@@ -41,7 +41,7 @@ public class Region {
     }
 
     public String toString() {
-        return String.format("Region: %s, xCoordinate: %d, yCoordinate: %d, techLevel: %d, resources: %d, " +
+        return String.format("Region: %s, xCoordinate: %f, yCoordinate: %f, techLevel: %d, resources: %d, " +
                 "City1: %s, City2: %s\n", name, xCoordinate, yCoordinate, techLevel, resources, cityList.get(0).getCityName(), cityList.get(1).getCityName());
     }
 

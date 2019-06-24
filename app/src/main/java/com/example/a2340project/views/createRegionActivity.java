@@ -45,20 +45,21 @@ public class createRegionActivity extends AppCompatActivity {
         City ValenciaIsland = new City("Valencia",0,0,0,0,0,0,0,0,0);
         City TangeloIsland = new City("Tangelo",0,0,0,0,0,0,0,0,0);
         allRegions.add(new Region("KANTO",  0,  0,  0,  1, PalletTown, ViridianCity));
-        allRegions.add(new Region("JOHTO",  0,  0,  0,  1, NewBarkTown, CherryGroveCity));
-        allRegions.add(new Region("HOENN",  0,  0,  0,  1, LittleRootTown, OldaleTown));
-        allRegions.add(new Region("ORRE",  0,  0,  0,  1, PyriteTown, PhenacCity));
-        allRegions.add(new Region("KALOS",  0,  0,  0,  1, AmbretteTown, AnistarCity));
-        allRegions.add(new Region("OBLIVIA",  0,  0,  0,  1, CoconaVillage, TiltVillage));
-        allRegions.add(new Region("ALMIA",  0,  0,  0,  1, ChicoleVillage, VienTown));
-        allRegions.add(new Region("UNOVA",  0,  0,  0,  1, NuvemaTown, AccumulaTown));
-        allRegions.add(new Region("FIORE",  0,  0,  0,  1, FallCity, RingTown));
-        allRegions.add(new Region("SINNOH",  0,  0,  0,  1, TwinleafTown, SandgemTown));
-        allRegions.add(new Region("SEVII_ISLANDS",  0,  0,  0,  1, OneIsland, TwoIsland));
-        allRegions.add(new Region("ORANGE_ISLANDS",  0,  0,  0,  1, ValenciaIsland, TangeloIsland));
+        allRegions.add(new Region("JOHTO",  1,  1,  0,  1, NewBarkTown, CherryGroveCity));
+        allRegions.add(new Region("HOENN",  2,  2,  0,  1, LittleRootTown, OldaleTown));
+        allRegions.add(new Region("ORRE",  3,  3,  0,  1, PyriteTown, PhenacCity));
+        allRegions.add(new Region("KALOS",  4,  4,  0,  1, AmbretteTown, AnistarCity));
+        allRegions.add(new Region("OBLIVIA",  5,  5,  0,  1, CoconaVillage, TiltVillage));
+        allRegions.add(new Region("ALMIA",  6,  6,  0,  1, ChicoleVillage, VienTown));
+        allRegions.add(new Region("UNOVA",  7,  7,  0,  1, NuvemaTown, AccumulaTown));
+        allRegions.add(new Region("FIORE",  8,  8,  0,  1, FallCity, RingTown));
+        allRegions.add(new Region("SINNOH",  9,  9,  0,  1, TwinleafTown, SandgemTown));
+        allRegions.add(new Region("SEVII_ISLANDS",  10,  10,  0,  1, OneIsland, TwoIsland));
+        allRegions.add(new Region("ORANGE_ISLANDS",  11,  11,  0,  1, ValenciaIsland, TangeloIsland));
 
-        for (Region a:allRegions) {
-            Log.d("RegionCreated", "Region name" + a.toString());
+        final String TAG = "Display Tag";
+        for(Region var: allRegions) {
+            Log.d(TAG, var.toString());
         }
     }
 }
