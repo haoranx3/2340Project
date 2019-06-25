@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.display_player">
+
+    <TextView
+        android:id="@+id/username_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="false"
+        android:layout_marginTop="30dp"
+        android:text="@string/username" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/userName"
+        android:layout_marginTop="0dp"
+        android:layout_below="@id/username_header" />
+
+    <TextView
+        android:id="@+id/class_header"
+        android:layout_width="133dp"
+        android:layout_height="35dp"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_below="@+id/userName"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="false"
+        android:layout_marginTop="44dp"
+        android:text="Class Skill Points" />
+
+</RelativeLayout>
