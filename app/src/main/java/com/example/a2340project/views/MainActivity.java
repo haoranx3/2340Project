@@ -12,21 +12,34 @@ import com.example.a2340project.R;
 public class MainActivity extends AppCompatActivity {
 
     private Button playButton;
+    private MediaPlayer bgm;
+    private MediaPlayer selectFX;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MediaPlayer player = MediaPlayer.create(getApplicationContext(), R.raw.pokemon);
-        player.start();
-
         playButton = findViewById(R.id.playButton);
+
+        bgm = MediaPlayer.create(this, R.raw.title);
+        bgm.setLooping(true);
+        bgm.setVolume(75,75);
+        bgm.start();
+
+        selectFX = MediaPlayer.create(this, R.raw.select);
+        selectFX.setVolume(1f/10f,1f/10f);
+
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent selectDifficultyIntent = new Intent(getApplicationContext(), selectDifficultyActivity.class);
                 startActivity(selectDifficultyIntent);
+                bgm.release();
+                selectFX.start();
+
             }
         });
     }
+
 }

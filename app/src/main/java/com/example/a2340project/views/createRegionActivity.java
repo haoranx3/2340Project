@@ -1,13 +1,13 @@
 package com.example.a2340project.views;
 
-import android.icu.util.VersionInfo;
-import android.nfc.Tag;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
-import com.example.a2340project.entity.City;
+import com.example.a2340project.R;
 import com.example.a2340project.entity.City;
 import com.example.a2340project.entity.Region;
 
@@ -16,10 +16,19 @@ import java.util.List;
 
 public class createRegionActivity extends AppCompatActivity {
 
+    private Button exit;
+
+    private MediaPlayer selectFX;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_create_region);
+
+        exit = findViewById(R.id.exitButton);
+
         List<Region> allRegions = new ArrayList<>(12);
+
         City PalletTown = new City("Pallet",0,0,0,0,0,0,0,0,0);
         City ViridianCity = new City("Viridian",0,0,0,0,0,0,0,0,0);
         City NewBarkTown = new City("NewBark",0,0,0,0,0,0,0,0,0);
@@ -44,6 +53,7 @@ public class createRegionActivity extends AppCompatActivity {
         City TwoIsland = new City("TwoIsland",0,0,0,0,0,0,0,0,0);
         City ValenciaIsland = new City("Valencia",0,0,0,0,0,0,0,0,0);
         City TangeloIsland = new City("Tangelo",0,0,0,0,0,0,0,0,0);
+
         allRegions.add(new Region("KANTO",  0,  0,  0,  1, PalletTown, ViridianCity));
         allRegions.add(new Region("JOHTO",  1,  1,  0,  1, NewBarkTown, CherryGroveCity));
         allRegions.add(new Region("HOENN",  2,  2,  0,  1, LittleRootTown, OldaleTown));
@@ -56,6 +66,18 @@ public class createRegionActivity extends AppCompatActivity {
         allRegions.add(new Region("SINNOH",  9,  9,  0,  1, TwinleafTown, SandgemTown));
         allRegions.add(new Region("SEVII_ISLANDS",  10,  10,  0,  1, OneIsland, TwoIsland));
         allRegions.add(new Region("ORANGE_ISLANDS",  11,  11,  0,  1, ValenciaIsland, TangeloIsland));
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                selectFX.setVolume(1f/10f,1f/10f);
+                selectFX.start();
+                moveTaskToBack(true);
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(1);
+            }
+        });
 
         final String TAG = "Display Tag";
         for(Region var: allRegions) {
