@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/color"
+    tools:context=".views.MainActivity">
+
+    <TextView
+        android:id="@+id/difficultyTextShadow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="2.5dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/difficulty"
+        android:textAllCaps="false"
+        android:textColor="#DBB999"
+        android:textSize="50sp"
+        android:visibility="visible"
+        app:fontFamily="@font/skranji" />
+
+    <TextView
+        android:id="@+id/difficultyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginStart="2.5dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="0dp"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/difficulty"
+        android:textAllCaps="false"
+        android:textColor="#8A3E20"
+        android:textSize="50sp"
+        android:visibility="visible"
+        app:fontFamily="@font/skranji" />
+
+    <Button
+        android:id="@+id/easyButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="200dip"
+        android:layout_height="60dip"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="160dp"
+        android:background="#C8A482"
+        android:text="@string/easy"
+        android:textColorLink="#00AF1919" />
+
+    <Button
+        android:id="@+id/normalButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="200dip"
+        android:layout_height="60dip"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="240dp"
+        android:background="#C8A482"
+        android:text="@string/normal" />
+
+    <Button
+        android:id="@+id/hardButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="200dip"
+        android:layout_height="60dip"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="320dp"
+        android:background="#C8A482"
+        android:text="@string/hard" />
+
+    <Button
+        android:id="@+id/impossibleButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="200dip"
+        android:layout_height="60dip"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="400dp"
+        android:background="#C8A482"
+        android:text="@string/impossible" />
+
+</android.support.design.widget.CoordinatorLayout>

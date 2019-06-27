@@ -2,42 +2,119 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/configScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.display_player">
+    android:background="@drawable/color"
+    tools:context=".views.createPlayerActivity">
 
-    <TextView
-        android:id="@+id/username_header"
+    <ImageView
+        android:id="@+id/professorOak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentBottom="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="83dp"
+        android:contentDescription="@string/oak"
+        app:srcCompat="@drawable/welcome" />
+
+    <ImageView
+        android:id="@+id/chatbox"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/chatbox"
+        android:scaleX="1.6"
+        app:srcCompat="@drawable/chatbox" />
+
+    <TextView
+        android:id="@+id/confirmText"
+        android:layout_width="249dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/chatbox"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="78dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="35dp"
+        android:text="@string/confirm"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        app:fontFamily="serif-monospace" />
+
+    <ImageView
+        android:id="@+id/spriteImage"
+        android:layout_width="200dp"
+        android:layout_height="130dp"
+        android:layout_centerInParent="false"
         android:layout_centerHorizontal="false"
+        android:layout_marginStart="200dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="150dp"
+        android:background="@android:color/transparent"
+        android:maxWidth="200dp"
+        android:maxHeight="200dp" />
+
+    <TextView
+        android:id="@+id/statsBox"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/textbox"
+        android:textAllCaps="true"
+        android:textSize="23sp"
+        app:fontFamily="serif-monospace" />
+
+    <Button
+        android:id="@+id/yesButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="95dp"
+        android:layout_height="75dp"
+        android:layout_below="@id/statsBox"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="30dp"
-        android:text="@string/username" />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/userName"
-        android:layout_marginTop="0dp"
-        android:layout_below="@id/username_header" />
+        android:background="#00C91E"
+        android:text="@string/yes"
+        android:textAllCaps="false"
+        android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/class_header"
-        android:layout_width="133dp"
-        android:layout_height="35dp"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_below="@+id/userName"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentBottom="false"
-        android:layout_centerHorizontal="false"
-        android:layout_marginTop="44dp"
-        android:text="Class Skill Points" />
+    <Button
+        android:id="@+id/noButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="95dp"
+        android:layout_height="75dp"
+        android:layout_below="@id/statsBox"
+        android:layout_gravity="center"
+        android:layout_marginStart="135dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="30dp"
+        android:background="#AD0000"
+        android:text="@string/no"
+        android:textAllCaps="false"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/exitButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="95dp"
+        android:layout_height="75dp"
+        android:layout_below="@id/statsBox"
+        android:layout_gravity="center"
+        android:layout_marginStart="85dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="30dp"
+        android:background="#AD0000"
+        android:text="Exit"
+        android:textAllCaps="false"
+        android:textSize="15sp" />
+
 
 </RelativeLayout>

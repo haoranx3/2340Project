@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,24 +7,45 @@
     android:background="@drawable/pokeback"
     tools:context=".views.MainActivity">
 
-    <android.support.v7.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="false"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="25dp">
+    <Button
+        android:id="@+id/playButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="300dp"
+        android:text="@string/play" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/difficultyTextShadow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="0dp"
+        android:layout_marginEnd="2.5dp"
+        android:layout_marginBottom="295dp"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/app_name"
+        android:textAllCaps="false"
+        android:textColor="#DBB999"
+        android:textSize="50sp"
+        android:visibility="visible"
+        app:fontFamily="@font/skranji" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/play" />
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-</RelativeLayout>
+    <TextView
+        android:id="@+id/difficultyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="300dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="2.5dp"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/app_name"
+        android:textAllCaps="false"
+        android:textColor="#8A3E20"
+        android:textSize="50sp"
+        android:visibility="visible"
+        app:fontFamily="@font/skranji" />
+
+</android.support.design.widget.CoordinatorLayout>

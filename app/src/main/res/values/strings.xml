@@ -1,6 +1,27 @@
 <resources>
-    <string name="app_name">2340Project</string>
+    <string name="app_name">PokéTraders</string>
     <string name="action_settings">Settings</string>
     <string name="play">Play</string>
+    <string name="oak">Professor Oak</string>
+    <string name="chatbox">Welcome Text</string>
+    <string name="welcome">Welcome to the world of Pokémon! Tell me a little about yourself!</string>
     <string name="username">Username:</string>
+    <string name="usernameHint">Enter a username</string>
+    <string name="skills">Skills:</string>
+    <string name="sailor">Sailor:</string>
+    <string name="trainer">Trainer:</string>
+    <string name="trader">Trader:</string>
+    <string name="engineer">Engineer:</string>
+    <string name="create">Begin</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="difficulty">Select Difficulty</string>
+    <string name="easy">Easy</string>
+    <string name="normal">Normal</string>
+    <string name="hard">Hard</string>
+    <string name="impossible">Impossible</string>
+    <string name="confirm">Right...\nSo your name is</string>
+    <string name="yes">Confirm</string>
+    <string name="no">Cancel</string>
 </resources>
+
