@@ -1,6 +1,7 @@
 package com.example.a2340project.views;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,9 +42,10 @@ public class createPlayerActivity extends AppCompatActivity {
     private Button engineerPlus;
 
     private Button createButton;
-    private Player player;
 
     private int numPoints;
+
+    private MediaPlayer selectFX;
 
 
     @Override
@@ -81,6 +83,9 @@ public class createPlayerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int pts = Integer.parseInt(sailorPoints.getText().toString());
                 if (numPoints != 16 && pts != 0) {
+                    selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                    selectFX.setVolume(1f/10f,1f/10f);
+                    selectFX.start();
                     numPoints++;
                     String totalPoints = numPoints + "pts";
                     sailorPoints.setText(String.valueOf(pts - 1));
@@ -95,6 +100,9 @@ public class createPlayerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int pts = Integer.parseInt(sailorPoints.getText().toString());
                 if (numPoints != 0 && pts != 16) {
+                    selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                    selectFX.setVolume(1f/10f,1f/10f);
+                    selectFX.start();
                     numPoints--;
                     String totalPoints = numPoints + "pts";
                     sailorPoints.setText(String.valueOf(pts + 1));
@@ -109,6 +117,9 @@ public class createPlayerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int pts = Integer.parseInt(trainerPoints.getText().toString());
                 if (numPoints != 16 && pts != 0) {
+                    selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                    selectFX.setVolume(1f/10f,1f/10f);
+                    selectFX.start();
                     numPoints++;
                     String totalPoints = numPoints + "pts";
                     trainerPoints.setText(String.valueOf(pts - 1));
@@ -123,6 +134,9 @@ public class createPlayerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int pts = Integer.parseInt(trainerPoints.getText().toString());
                 if (numPoints != 0 && pts != 16) {
+                    selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                    selectFX.setVolume(1f/10f,1f/10f);
+                    selectFX.start();
                     numPoints--;
                     String totalPoints = numPoints + "pts";
                     trainerPoints.setText(String.valueOf(pts + 1));
@@ -137,6 +151,9 @@ public class createPlayerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int pts = Integer.parseInt(traderPoints.getText().toString());
                 if (numPoints != 16 && pts != 0) {
+                    selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                    selectFX.setVolume(1f/10f,1f/10f);
+                    selectFX.start();
                     numPoints++;
                     String totalPoints = numPoints + "pts";
                     traderPoints.setText(String.valueOf(pts - 1));
@@ -151,6 +168,9 @@ public class createPlayerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int pts = Integer.parseInt(traderPoints.getText().toString());
                 if (numPoints != 0 && pts != 16) {
+                    selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                    selectFX.setVolume(1f/10f,1f/10f);
+                    selectFX.start();
                     numPoints--;
                     String totalPoints = numPoints + "pts";
                     traderPoints.setText(String.valueOf(pts + 1));
@@ -165,6 +185,9 @@ public class createPlayerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int pts = Integer.parseInt(engineerPoints.getText().toString());
                 if (numPoints != 16 && pts != 0) {
+                    selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                    selectFX.setVolume(1f/10f,1f/10f);
+                    selectFX.start();
                     numPoints++;
                     String totalPoints = numPoints + "pts";
                     engineerPoints.setText(String.valueOf(pts - 1));
@@ -179,6 +202,9 @@ public class createPlayerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int pts = Integer.parseInt(engineerPoints.getText().toString());
                 if (numPoints != 0 && pts != 16) {
+                    selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                    selectFX.setVolume(1f/10f,1f/10f);
+                    selectFX.start();
                     numPoints--;
                     String totalPoints = numPoints + "pts";
                     engineerPoints.setText(String.valueOf(pts + 1));
@@ -191,6 +217,9 @@ public class createPlayerActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                selectFX.setVolume(1f/10f,1f/10f);
+                selectFX.start();
                 int usernameLength = usernameField.getText().toString().trim().length();
                 if (usernameLength == 0 || numPoints != 0) {
                     String err = (usernameLength == 0) ? "Must enter a username!" : "Must allocate all points!";
