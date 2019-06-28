@@ -24,5 +24,6 @@
     <string name="yes">Confirm</string>
     <string name="no">Cancel</string>
     <string name="exit">Exit</string>
+    <string name="map">Map</string>
 </resources>
 

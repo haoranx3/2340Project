@@ -92,12 +92,6 @@ public class displayPlayerActivity extends AppCompatActivity {
                 Log.d("player added", "Player's name: " + player.getUserName() + " pilot points: " +
                         player.getPilot() + " fighter points: " + player.getFighter() + " trader points: " + player.getTrader() +
                         " engineer points: " + player.getEngineering() + " credits: 1000 ship: Gnat");
-                yes.setVisibility(View.GONE);
-                no.setVisibility(View.GONE);
-                String err = "Player " + player.getUserName() + " created!";
-                Toast toast = Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.CENTER, 0,0);
-                toast.show();
                 Intent createRegionIntent = new Intent(getApplicationContext(), createRegionActivity.class);
                 startActivity(createRegionIntent);
             }
