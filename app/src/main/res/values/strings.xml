@@ -25,5 +25,7 @@
     <string name="no">Cancel</string>
     <string name="exit">Exit</string>
     <string name="map">Map</string>
+    <string name="ship">Ship</string>
+    <string name="regionText">Pallet Town, Kanto</string>
 </resources>
 

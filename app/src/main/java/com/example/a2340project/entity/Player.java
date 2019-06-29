@@ -11,6 +11,8 @@ public class Player {
     private int pokeDollars;
     private Ship ship;
 
+    private Region currentRegion;
+
     /** a globally unique number for this object */
     private int id;
 
@@ -61,6 +63,10 @@ public class Player {
         return id;
     }
 
+    public Region getCurrentRegion() {
+        return currentRegion;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -75,6 +81,10 @@ public class Player {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setCurrentRegion(Region region) {
+        currentRegion = region;
     }
 
     @Override
