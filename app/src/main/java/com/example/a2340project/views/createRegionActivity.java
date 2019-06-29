@@ -2,9 +2,13 @@ package com.example.a2340project.views;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.HorizontalScrollView;
 import android.widget.Button;
 
 import com.example.a2340project.R;
@@ -17,6 +21,9 @@ import java.util.List;
 public class createRegionActivity extends AppCompatActivity {
 
     private Button exit;
+    private HorizontalScrollView map;
+    private ImageView background;
+    private RelativeLayout screen;
 
     private MediaPlayer selectFX;
 
@@ -26,6 +33,9 @@ public class createRegionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_region);
 
         exit = findViewById(R.id.exitButton);
+        map = findViewById(R.id.map);
+        background = findViewById(R.id.mapBackground);
+        screen = findViewById(R.id.screen);
 
         List<Region> allRegions = new ArrayList<>(12);
 
@@ -79,9 +89,22 @@ public class createRegionActivity extends AppCompatActivity {
             }
         });
 
+
         final String TAG = "Display Tag";
         for(Region var: allRegions) {
             Log.d(TAG, var.toString());
         }
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                map.smoothScrollTo(background.getWidth()/2 - screen.getWidth()/2, 0);
+            }
+        }, 500);
+    }
+
 }
