@@ -1,5 +1,6 @@
 package com.example.a2340project.views;
 
+import java.util.Random;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,11 +13,8 @@ import android.widget.HorizontalScrollView;
 import android.widget.Button;
 
 import com.example.a2340project.R;
-import com.example.a2340project.entity.City;
 import com.example.a2340project.entity.Region;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.a2340project.entity.RegionEnum;
 
 public class createRegionActivity extends AppCompatActivity {
 
@@ -26,6 +24,8 @@ public class createRegionActivity extends AppCompatActivity {
     private RelativeLayout screen;
 
     private MediaPlayer selectFX;
+
+    private Random random;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,45 +37,14 @@ public class createRegionActivity extends AppCompatActivity {
         background = findViewById(R.id.mapBackground);
         screen = findViewById(R.id.screen);
 
-        List<Region> allRegions = new ArrayList<>(12);
+        random = new Random();
 
-        City PalletTown = new City("Pallet",0,0,0,0,0,0,0,0,0);
-        City ViridianCity = new City("Viridian",0,0,0,0,0,0,0,0,0);
-        City NewBarkTown = new City("NewBark",0,0,0,0,0,0,0,0,0);
-        City CherryGroveCity = new City("CherryGrove",0,0,0,0,0,0,0,0,0);
-        City LittleRootTown = new City("LittleRoot",0,0,0,0,0,0,0,0,0);
-        City OldaleTown = new City("Oldale",0,0,0,0,0,0,0,0,0);
-        City PyriteTown = new City("Pyrite",0,0,0,0,0,0,0,0,0);
-        City PhenacCity = new City("Phenac",0,0,0,0,0,0,0,0,0);
-        City AmbretteTown = new City("Ambrette",0,0,0,0,0,0,0,0,0);
-        City AnistarCity = new City("Anistar",0,0,0,0,0,0,0,0,0);
-        City CoconaVillage = new City("Cocona",0,0,0,0,0,0,0,0,0);
-        City TiltVillage = new City("Tilt",0,0,0,0,0,0,0,0,0);
-        City ChicoleVillage = new City("Chicole",0,0,0,0,0,0,0,0,0);
-        City VienTown = new City("Vien",0,0,0,0,0,0,0,0,0);
-        City NuvemaTown = new City("Nuvema",0,0,0,0,0,0,0,0,0);
-        City AccumulaTown = new City("Accumula",0,0,0,0,0,0,0,0,0);
-        City FallCity = new City("Fall",0,0,0,0,0,0,0,0,0);
-        City RingTown = new City("Ring",0,0,0,0,0,0,0,0,0);
-        City TwinleafTown = new City("Twinleaf",0,0,0,0,0,0,0,0,0);
-        City SandgemTown = new City("Sandgem",0,0,0,0,0,0,0,0,0);
-        City OneIsland = new City("OneIsland",0,0,0,0,0,0,0,0,0);
-        City TwoIsland = new City("TwoIsland",0,0,0,0,0,0,0,0,0);
-        City ValenciaIsland = new City("Valencia",0,0,0,0,0,0,0,0,0);
-        City TangeloIsland = new City("Tangelo",0,0,0,0,0,0,0,0,0);
+        Region[] regions = new Region[12];
 
-        allRegions.add(new Region("KANTO",  0,  0,  0,  1, PalletTown, ViridianCity));
-        allRegions.add(new Region("JOHTO",  1,  1,  0,  1, NewBarkTown, CherryGroveCity));
-        allRegions.add(new Region("HOENN",  2,  2,  0,  1, LittleRootTown, OldaleTown));
-        allRegions.add(new Region("ORRE",  3,  3,  0,  1, PyriteTown, PhenacCity));
-        allRegions.add(new Region("KALOS",  4,  4,  0,  1, AmbretteTown, AnistarCity));
-        allRegions.add(new Region("OBLIVIA",  5,  5,  0,  1, CoconaVillage, TiltVillage));
-        allRegions.add(new Region("ALMIA",  6,  6,  0,  1, ChicoleVillage, VienTown));
-        allRegions.add(new Region("UNOVA",  7,  7,  0,  1, NuvemaTown, AccumulaTown));
-        allRegions.add(new Region("FIORE",  8,  8,  0,  1, FallCity, RingTown));
-        allRegions.add(new Region("SINNOH",  9,  9,  0,  1, TwinleafTown, SandgemTown));
-        allRegions.add(new Region("SEVII_ISLANDS",  10,  10,  0,  1, OneIsland, TwoIsland));
-        allRegions.add(new Region("ORANGE_ISLANDS",  11,  11,  0,  1, ValenciaIsland, TangeloIsland));
+        for (RegionEnum region : RegionEnum.values()) {
+            regions[region.ordinal()] = new Region(region, region.getX(), region.getY(), 5, 0, random.nextInt(2));
+        }
+
 
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +60,7 @@ public class createRegionActivity extends AppCompatActivity {
 
 
         final String TAG = "Display Tag";
-        for(Region var: allRegions) {
+        for (Region var: regions) {
             Log.d(TAG, var.toString());
         }
     }

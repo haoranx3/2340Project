@@ -47,7 +47,7 @@ public class Repository {
     public void updatePlayer(Player player) {
         for (Player player1 : allPlayers) {
             if (player1.getId() == player.getId()) {
-                player1.setUserName(player.getUserName());
+                player1.setUsername(player.getUsername());
                 return;
             }
         }

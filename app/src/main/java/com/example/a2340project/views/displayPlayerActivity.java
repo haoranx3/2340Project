@@ -7,12 +7,10 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.a2340project.R;
 import com.example.a2340project.entity.Player;
@@ -89,9 +87,12 @@ public class displayPlayerActivity extends AppCompatActivity {
                 selectFX.start();
                 player = new Player(username, diff, sailorPoints, trainerPoints, traderPoints, engineerPoints);
                 viewModel.addPlayer(player);
-                Log.d("player added", "Player's name: " + player.getUserName() + " pilot points: " +
-                        player.getPilot() + " fighter points: " + player.getFighter() + " trader points: " + player.getTrader() +
-                        " engineer points: " + player.getEngineering() + " credits: 1000 ship: Gnat");
+                Log.d("player added", "Player's name: " + player.getUsername() + " sailor points: " +
+                        player.getSailorPoints() + " trainer points: " + player.getTrainerPoints() + " trader points: "
+                        + player.getTraderPoints() +
+                        " engineer points: "
+                        + player.getEngineerPoints() + " credits: " + player.getPokeDollars() + " ship: "
+                        + player.getShip().getName());
                 Intent createRegionIntent = new Intent(getApplicationContext(), createRegionActivity.class);
                 startActivity(createRegionIntent);
             }
