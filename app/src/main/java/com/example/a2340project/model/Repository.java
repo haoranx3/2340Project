@@ -37,7 +37,7 @@ public class Repository {
      */
     public void addPlayer(Player player) {
         player.setId(Repository.getNextUniqueID());
-
+        allPlayers.add(player);
     }
 
     /**

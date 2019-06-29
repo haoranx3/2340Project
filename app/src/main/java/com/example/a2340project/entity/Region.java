@@ -1,5 +1,7 @@
 package com.example.a2340project.entity;
 
+import java.util.Random;
+
 public class Region {
     private RegionEnum region;
     private int x;
@@ -7,6 +9,7 @@ public class Region {
     private int techLevel;
     private int resources;
     private City city;
+    private Random random = new Random();
 
     public Region(RegionEnum region, int x, int y, int techLevel, int resources, int index) {
         this.region = region;
@@ -17,7 +20,33 @@ public class Region {
         this.city = new City(region.getTowns()[index]);
     }
 
+    public void randomizeCity() {
+        city = new City(region.getTowns()[random.nextInt(3)]);
+    }
 
+    public RegionEnum getRegion() {
+        return region;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getTechLevel() {
+        return techLevel;
+    }
+
+    public int getResources() {
+        return resources;
+    }
+
+    public City getCity() {
+        return city;
+    }
 
     public String toString() {
         return String.format("Region: %s, xCoordinate: %d, yCoordinate: %d, techLevel: %d, resources: %d, " +
