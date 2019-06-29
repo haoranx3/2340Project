@@ -1,6 +1,7 @@
 package com.example.a2340project.views;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,6 +16,9 @@ public class selectDifficultyActivity extends AppCompatActivity {
     private Button hardButton;
     private Button impossibleButton;
 
+    private MediaPlayer bgm;
+    private MediaPlayer selectFX;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +29,17 @@ public class selectDifficultyActivity extends AppCompatActivity {
         hardButton = findViewById(R.id.hardButton);
         impossibleButton = findViewById(R.id.impossibleButton);
 
+        bgm = MediaPlayer.create(this, R.raw.littleroot);
+        bgm.setLooping(true);
+        bgm.setVolume(50,50);
+
+        selectFX = MediaPlayer.create(this, R.raw.select);
+        selectFX.setVolume(1f/10f,1f/10f);
+
         easyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectFX.start();
                 Intent createPlayerScreenIntent = new Intent(getApplicationContext(), createPlayerActivity.class);
                 createPlayerScreenIntent.putExtra("diff", "Easy");
                 startActivity(createPlayerScreenIntent);
@@ -37,6 +49,7 @@ public class selectDifficultyActivity extends AppCompatActivity {
         normalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectFX.start();
                 Intent createPlayerScreenIntent = new Intent(getApplicationContext(), createPlayerActivity.class);
                 createPlayerScreenIntent.putExtra("diff", "Normal");
                 startActivity(createPlayerScreenIntent);
@@ -46,6 +59,7 @@ public class selectDifficultyActivity extends AppCompatActivity {
         hardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectFX.start();
                 Intent createPlayerScreenIntent = new Intent(getApplicationContext(), createPlayerActivity.class);
                 createPlayerScreenIntent.putExtra("diff", "Hard");
                 startActivity(createPlayerScreenIntent);
@@ -55,10 +69,17 @@ public class selectDifficultyActivity extends AppCompatActivity {
         impossibleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectFX.start();
                 Intent createPlayerScreenIntent = new Intent(getApplicationContext(), createPlayerActivity.class);
                 createPlayerScreenIntent.putExtra("diff", "Impossible");
                 startActivity(createPlayerScreenIntent);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        bgm.start();
     }
 }

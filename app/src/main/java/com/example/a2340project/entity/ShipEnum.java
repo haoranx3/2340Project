@@ -1,7 +1,8 @@
 package com.example.a2340project.entity;
 
-public class Ship {
-    private ShipEnum ship;
+public enum ShipEnum {
+    SSAnne("S.S. Anne", 25, 15, 1, 0, 1, 1, 14, 2);
+
     private String name;
     private int hullStrength;
     private int cargoBay;
@@ -12,19 +13,16 @@ public class Ship {
     private int fuel;
     private int fuelCost;
 
-    private int cargo;
-
-    public Ship(ShipEnum type) {
-        ship = type;
-        name = type.getName();
-        hullStrength = type.getHullStrength();
-        cargoBay = type.getCargoBay();
-        weaponSlots = type.getWeaponSlots();
-        shieldSlots = type.getShieldSlots();
-        gadgetSlots = type.getGadgetSlots();
-        crew = type.getCrew();
-        fuel = type.getFuel();
-        fuelCost = type.getFuelCost();
+    ShipEnum(String name, int hull, int cargo, int weapon, int shield, int gadget, int crew, int fuel, int cost) {
+        this.name = name;
+        hullStrength = hull;
+        cargoBay = cargo;
+        weaponSlots = weapon;
+        shieldSlots = shield;
+        gadgetSlots = gadget;
+        this.crew = crew;
+        this.fuel = fuel;
+        fuelCost = cost;
     }
 
     public String getName() {
@@ -61,13 +59,5 @@ public class Ship {
 
     public int getFuelCost() {
         return fuelCost;
-    }
-
-    public int getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(int cargo) {
-        this.cargo = cargo;
     }
 }

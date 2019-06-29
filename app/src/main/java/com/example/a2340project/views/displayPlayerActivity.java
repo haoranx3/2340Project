@@ -1,18 +1,16 @@
 package com.example.a2340project.views;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.a2340project.R;
 import com.example.a2340project.entity.Player;
@@ -28,7 +26,6 @@ public class displayPlayerActivity extends AppCompatActivity {
     private TextView name;
     private Button yes;
     private Button no;
-    private Button exit;
 
     String username;
     int sailorPoints;
@@ -38,6 +35,8 @@ public class displayPlayerActivity extends AppCompatActivity {
     String diff;
 
     private Player player;
+
+    private MediaPlayer selectFX;
 
 
     @Override
@@ -50,11 +49,6 @@ public class displayPlayerActivity extends AppCompatActivity {
         name = findViewById(R.id.confirmText);
         yes = findViewById(R.id.yesButton);
         no = findViewById(R.id.noButton);
-        exit = findViewById(R.id.exitButton);
-
-        yes.setVisibility(View.VISIBLE);
-        no.setVisibility(View.VISIBLE);
-        exit.setVisibility(View.GONE);
 
         viewModel = ViewModelProviders.of(this).get(CreatePlayerViewModel.class);
 
@@ -78,36 +72,27 @@ public class displayPlayerActivity extends AppCompatActivity {
         no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent createPlayerScreenIntent = new Intent(getApplicationContext(), createPlayerActivity.class);
-                //startActivity(createPlayerScreenIntent);
+                selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                selectFX.setVolume(1f/10f,1f/10f);
+                selectFX.start();
                 finish();
-            }
-        });
-
-        exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                moveTaskToBack(true);
-                android.os.Process.killProcess(android.os.Process.myPid());
-                System.exit(1);
             }
         });
 
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                selectFX.setVolume(1f/10f,1f/10f);
+                selectFX.start();
                 player = new Player(username, diff, sailorPoints, trainerPoints, traderPoints, engineerPoints);
                 viewModel.addPlayer(player);
-                Log.d("player added", "Player's name: " + player.getUserName() + " pilot points: " +
-                        player.getPilot() + " fighter points: " + player.getFighter() + " trader points: " + player.getTrader() +
-                        " engineer points: " + player.getEngineering() + " credits: 1000 ship: Gnat");
-                yes.setVisibility(View.GONE);
-                no.setVisibility(View.GONE);
-                exit.setVisibility(View.VISIBLE);
-                String err = "Player " + player.getUserName() + " created!";
-                Toast toast = Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.CENTER, 0,0);
-                toast.show();
+                Log.d("player added", "Player's name: " + player.getUsername() + " sailor points: " +
+                        player.getSailorPoints() + " trainer points: " + player.getTrainerPoints() + " trader points: "
+                        + player.getTraderPoints() +
+                        " engineer points: "
+                        + player.getEngineerPoints() + " credits: " + player.getPokeDollars() + " ship: "
+                        + player.getShip().getName());
                 Intent createRegionIntent = new Intent(getApplicationContext(), createRegionActivity.class);
                 startActivity(createRegionIntent);
             }

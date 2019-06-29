@@ -101,20 +101,5 @@
         android:textAllCaps="false"
         android:textSize="15sp" />
 
-    <Button
-        android:id="@+id/exitButton"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="95dp"
-        android:layout_height="75dp"
-        android:layout_below="@id/statsBox"
-        android:layout_gravity="center"
-        android:layout_marginStart="85dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="30dp"
-        android:background="#AD0000"
-        android:text="Exit"
-        android:textAllCaps="false"
-        android:textSize="15sp" />
-
 
 </RelativeLayout>

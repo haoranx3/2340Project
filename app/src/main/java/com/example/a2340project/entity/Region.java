@@ -1,48 +1,27 @@
 package com.example.a2340project.entity;
 
-import java.util.ArrayList;
-
 public class Region {
-    private final String name;
-    private final double xCoordinate;
-    private final double yCoordinate;
-    private final int techLevel;
-    private final int resources;
-    private final ArrayList<City> cityList = new ArrayList<>(2);
+    private RegionEnum region;
+    private int x;
+    private int y;
+    private int techLevel;
+    private int resources;
+    private City city;
 
-    public Region(String name, double xCoordinate, double yCoordinate, int techLevel, int resources, City city1, City city2) {
-        this.name = name;
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
+    public Region(RegionEnum region, int x, int y, int techLevel, int resources, int index) {
+        this.region = region;
+        this.x = region.getX();
+        this.y = region.getY();
         this.techLevel = techLevel;
         this.resources = resources;
-        cityList.add(city1);
-        cityList.add(city2);
+        this.city = new City(region.getTowns()[index]);
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public double getxCoordinate() {
-        return xCoordinate;
-    }
-
-    public double getyCoordinate() {
-        return yCoordinate;
-    }
-
-    public int getTechLevel() {
-        return techLevel;
-    }
-
-    public int getResources() {
-        return resources;
-    }
 
     public String toString() {
-        return String.format("Region: %s, xCoordinate: %f, yCoordinate: %f, techLevel: %d, resources: %d, " +
-                "City1: %s, City2: %s\n", name, xCoordinate, yCoordinate, techLevel, resources, cityList.get(0).getCityName(), cityList.get(1).getCityName());
+        return String.format("Region: %s, xCoordinate: %d, yCoordinate: %d, techLevel: %d, resources: %d, " +
+                "City: %s%n", region.getName(), x, y, techLevel, resources, city.getCityName());
     }
 
 }
