@@ -12,12 +12,14 @@ public class City {
     private int technicalMachinePrice;
     private int bigMushroomPrice;
     private int pokeBallPrice;
+    private int techLevel;
+    private int resources;
 
     public City(String cityName) {
-        this(cityName, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        this(cityName, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2);
     }
 
-    public City(String cityName, int freshWaterPrice, int scarfPrice, int berriesPrice, int nuggetsPrice, int pokeDollPrice, int pokemonPrice, int potionsPrice, int technicalMachinePrice, int bigMushroomPrice, int pokeBallPrice) {
+    public City(String cityName, int freshWaterPrice, int scarfPrice, int berriesPrice, int nuggetsPrice, int pokeDollPrice, int pokemonPrice, int potionsPrice, int technicalMachinePrice, int bigMushroomPrice, int pokeBallPrice, int techLevel, int resources) {
         this.cityName = cityName;
         this.freshWaterPrice = freshWaterPrice;
         this.scarfPrice = scarfPrice;
@@ -29,6 +31,8 @@ public class City {
         this.technicalMachinePrice = technicalMachinePrice;
         this.bigMushroomPrice = bigMushroomPrice;
         this.pokeBallPrice = pokeBallPrice;
+        this.techLevel = techLevel;
+        this.resources = resources;
     }
 
     public String getCityName() {
@@ -113,5 +117,13 @@ public class City {
 
     public void setPokeBallPrice(int pokeBallPrice) {
         this.pokeBallPrice = pokeBallPrice;
+    }
+
+    public int getTechLevel() {
+        return techLevel;
+    }
+
+    public int getResources() {
+        return resources;
     }
 }
