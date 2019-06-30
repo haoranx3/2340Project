@@ -12,7 +12,8 @@ public class Ship {
     private int fuel;
     private int fuelCost;
 
-    private int cargo;
+    private int[] cargo = new int[10];
+    private int numberOfCargo = 0;
 
     public Ship(ShipEnum type) {
         ship = type;
@@ -63,11 +64,17 @@ public class Ship {
         return fuelCost;
     }
 
-    public int getCargo() {
-        return cargo;
+    public int getCargo(int indexForItem) {
+        return cargo[indexForItem];
     }
 
-    public void setCargo(int cargo) {
-        this.cargo = cargo;
+    public void setCargo(int indexForItem, int quantityOfItem) {
+        cargo[indexForItem] = quantityOfItem;
+    }
+
+    public int getNumberOfCargo() { return numberOfCargo; }
+
+    public void setNumberOfCargo(int numberOfCargo) {
+        this.numberOfCargo = numberOfCargo;
     }
 }

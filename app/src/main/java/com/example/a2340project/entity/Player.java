@@ -87,6 +87,28 @@ public class Player {
         currentRegion = region;
     }
 
+    public void sell(int indexForItem, Ship ship) {
+        if (ship.getCargo(indexForItem) > 0) {
+            ship.setCargo(indexForItem, ship.getCargo(indexForItem) - 1);
+            pokeDollars = pokeDollars + indexForItem + 1;
+            ship.setNumberOfCargo(ship.getNumberOfCargo() - 1);
+        } else {
+            throw new RuntimeException("You can not sell something you dont have");
+        }
+    }
+
+    public void buy(int indexForItem, Ship ship) {
+        if (ship.getNumberOfCargo() == ship.getCargoBay()) {
+            throw new RuntimeException("Your bag is full, can not buy more stuff");
+        } else if (pokeDollars >= (indexForItem + 1)) {
+            pokeDollars = pokeDollars - (indexForItem + 1);
+            ship.setCargo(indexForItem, ship.getCargo(indexForItem) + 1);
+            ship.setNumberOfCargo(ship.getNumberOfCargo() + 1);
+        } else {
+            throw new RuntimeException("You dont have enough money");
+        }
+    }
+
     @Override
     public String toString() {
         return String.format("Player: %s, game difficulties: %s, pilot skills: %d, trader skills: %d, fighter skills: %d, " +
