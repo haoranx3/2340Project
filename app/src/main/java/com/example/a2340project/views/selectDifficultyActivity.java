@@ -29,9 +29,9 @@ public class selectDifficultyActivity extends AppCompatActivity {
         hardButton = findViewById(R.id.hardButton);
         impossibleButton = findViewById(R.id.impossibleButton);
 
-        bgm = MediaPlayer.create(this, R.raw.littleroot);
+        bgm = MediaPlayer.create(this, R.raw.fortree);
         bgm.setLooping(true);
-        bgm.setVolume(50,50);
+        bgm.setVolume(7f/10f,7f/10f);
 
         selectFX = MediaPlayer.create(this, R.raw.select);
         selectFX.setVolume(1f/10f,1f/10f);

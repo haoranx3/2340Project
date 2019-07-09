@@ -13,21 +13,259 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/mapBackground"
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/map"
-            android:focusable="true"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/map" />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/mapBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/map"
+                android:focusable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/map" />
+
+            <RelativeLayout
+                android:id="@+id/orange"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="520dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/regionbox"
+                android:visibility="visible">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="Orange Islands"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fiore"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="430dp"
+                android:layout_marginBottom="80dp"
+                android:background="@drawable/regionbox"
+                android:visibility="visible">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="Fiore"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/unova"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="false"
+                android:layout_marginLeft="580dp"
+                android:layout_marginTop="400dp"
+                android:background="@drawable/regionbox"
+                android:visibility="visible">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="Unova"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/almia"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="false"
+                android:layout_marginLeft="500dp"
+                android:layout_marginTop="250dp"
+                android:background="@drawable/regionbox"
+                android:visibility="visible">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="Almia"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/orre"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="false"
+                android:layout_centerHorizontal="false"
+                android:layout_marginLeft="240dp"
+                android:layout_marginTop="90dp"
+                android:background="@drawable/regionbox"
+                android:visibility="visible">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="Orre"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/kalos"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="false"
+                android:layout_centerHorizontal="false"
+                android:layout_marginLeft="220dp"
+                android:layout_marginTop="130dp"
+                android:background="@drawable/regionbox"
+                android:visibility="visible">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="Kalos"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/hoenn"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="false"
+                android:layout_centerHorizontal="false"
+                android:layout_marginLeft="260dp"
+                android:layout_marginTop="400dp"
+                android:background="@drawable/regionbox"
+                android:visibility="visible">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="Hoenn"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/johto"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="false"
+                android:layout_centerHorizontal="false"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="220dp"
+                android:background="@drawable/regionbox"
+                android:visibility="visible">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="Johto"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/kanto"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/regionbox"
+                android:visibility="visible">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="Kanto"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/sinnoh"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="200dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/regionbox"
+                android:visibility="visible">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="Sinnoh"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/sevii"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="45dp"
+                android:background="@drawable/regionbox"
+                android:visibility="visible">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="Sevii Islands"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/oblivia"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="220dp"
+                android:background="@drawable/regionbox"
+                android:visibility="visible">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="Oblivia"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
     </HorizontalScrollView>
 
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/shipAnimation"
@@ -35,7 +273,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:contentDescription="@string/ship"
-            android:visibility="gone"
+            android:visibility="visible"
             app:srcCompat="@drawable/ship" />
 
     </RelativeLayout>
@@ -57,7 +295,8 @@
     <RelativeLayout
         android:id="@+id/shopContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <RelativeLayout
             android:id="@+id/shopUI"
@@ -779,7 +1018,7 @@
                         android:lineSpacingExtra="10sp"
                         android:text="₽100"
                         android:textAllCaps="false"
-                        android:textColor="#000000"
+                        android:textColor="#CF7766"
                         android:textSize="20sp"
                         android:visibility="visible"
                         app:fontFamily="@font/skranji" />
@@ -900,6 +1139,196 @@
                 android:text="Travel" />
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/confirmItem"
+            android:layout_width="380dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/textbox"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="false"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:lineSpacingExtra="10sp"
+                android:text="Purchase Fresh Water?"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:visibility="visible"
+                app:fontFamily="@font/skranji" />
+
+            <Button
+                android:id="@+id/decline"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="75dp"
+                android:layout_height="45dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="false"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="80dp"
+                android:background="#AD0000"
+                android:text="@string/no"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                tools:visibility="visible" />
+
+            <Button
+                android:id="@+id/confirm"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="75dp"
+                android:layout_height="45dp"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="false"
+                android:layout_marginTop="80dp"
+                android:layout_marginRight="80dp"
+                android:background="#00C91E"
+                android:text="@string/yes"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                tools:visibility="visible" />
+
+            <Button
+                android:id="@+id/ok"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="75dp"
+                android:layout_height="45dp"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="false"
+                android:layout_centerInParent="false"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="80dp"
+                android:background="#8A3E20"
+                android:text="@android:string/ok"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                tools:visibility="gone" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/backButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="false"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#8A3E20"
+        android:text="@string/back"
+        android:textAllCaps="true"
+        android:textSize="15sp"
+        tools:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/fuel"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/textbox">
+
+        <TextView
+            android:id="@+id/fuelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:lineSpacingExtra="10sp"
+            android:text="Fuel: 14"
+            android:textAllCaps="true"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:visibility="visible"
+            app:fontFamily="@font/skranji" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/confirmTravel"
+        android:layout_width="380dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/textbox"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/travelMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:lineSpacingExtra="10sp"
+            android:text="Go to Sevii Islands for 14 fuel?"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="23sp"
+            android:visibility="visible"
+            app:fontFamily="@font/skranji" />
+
+        <Button
+            android:id="@+id/declineTravel"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="75dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="false"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="80dp"
+            android:background="#AD0000"
+            android:text="@string/no"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/acceptTravel"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="75dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="false"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="80dp"
+            android:background="#00C91E"
+            android:text="@string/yes"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/okTravel"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="75dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="false"
+            android:layout_centerInParent="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:background="#8A3E20"
+            android:text="@android:string/ok"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            tools:visibility="gone" />
     </RelativeLayout>
 
 </RelativeLayout>

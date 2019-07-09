@@ -87,6 +87,68 @@ public class Player {
         currentRegion = region;
     }
 
+    public void sell(int indexForItem, Ship ship) {
+        if (ship.getCargo(indexForItem) > 0) {
+            ship.setCargo(indexForItem, ship.getCargo(indexForItem) - 1);
+            if (indexForItem == 0) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getFreshWaterPrice();
+            } else if (indexForItem == 1) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getScarfPrice();
+            } else if (indexForItem == 2) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getBerriesPrice();
+            } else if (indexForItem == 3) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getNuggetsPrice();
+            } else if (indexForItem == 4) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getPokeDollPrice();
+            } else if (indexForItem == 5) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getPokemonPrice();
+            } else if (indexForItem == 6) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getPotionsPrice();
+            } else if (indexForItem == 7) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getTechnicalMachinePrice();
+            } else if (indexForItem == 8) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getBigMushroomPrice();
+            } else {
+                pokeDollars = pokeDollars + currentRegion.getCity().getPokeBallPrice();
+            }
+            ship.setNumberOfCargo(ship.getNumberOfCargo() - 1);
+        } else {
+            throw new RuntimeException("You can not sell something you dont have");
+        }
+    }
+
+    public void buy(int indexForItem, Ship ship) {
+        if (ship.getNumberOfCargo() == ship.getCargoBay()) {
+            throw new RuntimeException("Your bag is full, can not buy more stuff");
+        } else if (pokeDollars >= (indexForItem + 1)) {
+            if (indexForItem == 0) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getFreshWaterPrice();
+            } else if (indexForItem == 1) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getScarfPrice();
+            } else if (indexForItem == 2) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getBerriesPrice();
+            } else if (indexForItem == 3) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getNuggetsPrice();
+            } else if (indexForItem == 4) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getPokeDollPrice();
+            } else if (indexForItem == 5) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getPokemonPrice();
+            } else if (indexForItem == 6) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getPotionsPrice();
+            } else if (indexForItem == 7) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getTechnicalMachinePrice();
+            } else if (indexForItem == 8) {
+                pokeDollars = pokeDollars + currentRegion.getCity().getBigMushroomPrice();
+            } else {
+                pokeDollars = pokeDollars + currentRegion.getCity().getPokeBallPrice();
+            }
+            ship.setCargo(indexForItem, ship.getCargo(indexForItem) + 1);
+            ship.setNumberOfCargo(ship.getNumberOfCargo() + 1);
+        } else {
+            throw new RuntimeException("You dont have enough money");
+        }
+    }
+
     @Override
     public String toString() {
         return String.format("Player: %s, game difficulties: %s, pilot skills: %d, trader skills: %d, fighter skills: %d, " +
