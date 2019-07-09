@@ -12,7 +12,7 @@ public class Ship {
     private int fuel;
     private int fuelCost;
 
-    private int[] cargo = new int[10];
+    private int[] cargo = {0,0,0,0,0,0,0,0,0,0};
     private int numberOfCargo = 0;
 
     public Ship(ShipEnum type) {
@@ -76,5 +76,9 @@ public class Ship {
 
     public void setNumberOfCargo(int numberOfCargo) {
         this.numberOfCargo = numberOfCargo;
+    }
+
+    public void setFuel(int fuel) {
+        this.fuel = fuel;
     }
 }

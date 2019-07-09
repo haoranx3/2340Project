@@ -15,24 +15,27 @@ public class City {
     private int techLevel;
     private int resources;
 
-    public City(String cityName) {
-        this(cityName, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2);
-    }
-
-    public City(String cityName, int freshWaterPrice, int scarfPrice, int berriesPrice, int nuggetsPrice, int pokeDollPrice, int pokemonPrice, int potionsPrice, int technicalMachinePrice, int bigMushroomPrice, int pokeBallPrice, int techLevel, int resources) {
+    public City(String cityName, int techLevel, int resources) {
         this.cityName = cityName;
-        this.freshWaterPrice = freshWaterPrice;
-        this.scarfPrice = scarfPrice;
-        this.berriesPrice = berriesPrice;
-        this.nuggetsPrice = nuggetsPrice;
-        this.pokeDollPrice = pokeDollPrice;
-        this.pokemonPrice = pokemonPrice;
-        this.potionsPrice = potionsPrice;
-        this.technicalMachinePrice = technicalMachinePrice;
-        this.bigMushroomPrice = bigMushroomPrice;
-        this.pokeBallPrice = pokeBallPrice;
         this.techLevel = techLevel;
         this.resources = resources;
+        this.freshWaterPrice = configurePrice(30, 3, 0);
+        this.scarfPrice = configurePrice(250, 10, 0);
+        this.berriesPrice = configurePrice(100, 5, 1);
+        this.nuggetsPrice = configurePrice(350, 20, 2);
+        this.pokeDollPrice = configurePrice(250, -10, 3);
+        this.pokemonPrice = configurePrice(1250, -75, 3);
+        this.potionsPrice = configurePrice(650, -20, 4);
+        this.technicalMachinePrice = configurePrice(900, -30, 4);
+        this.bigMushroomPrice = configurePrice(3500, -125, 5);
+        this.pokeBallPrice = configurePrice(5000, -150, 6);
+    }
+
+    private int configurePrice(int base, int IPL, int MTLP) {
+        if (MTLP <= techLevel) {
+            return base + IPL * (techLevel - MTLP);
+        }
+        return -1;
     }
 
     public String getCityName() {

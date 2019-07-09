@@ -12,7 +12,7 @@ public enum RegionEnum {
     ORRE("Orre",new String[] {"Pyrite Town", "Gateon Port"}, -1, 3),
     ALMIA("Almia",new String[] {"Chicole Village", "Pueltown"}, 1, 1),
     FIORE("Fiore",new String[] {"Fall City", "Wintown"}, 1, -2),
-    ORANGEISLANDS("Orange Islands",new String[] {"Tangelo Island", "Mandarin Island"}, -2, -2);
+    ORANGEISLANDS("Orange Islands",new String[] {"Tangelo Island", "Mandarin Island"}, 2, -2);
 
     String name;
     String[] towns;

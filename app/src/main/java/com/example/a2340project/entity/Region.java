@@ -13,11 +13,11 @@ public class Region {
         this.region = region;
         this.x = region.getX();
         this.y = region.getY();
-        this.city = new City(region.getTowns()[index]);
+        this.city = new City(region.getTowns()[index], random.nextInt(8), random.nextInt(13));
     }
 
     public void randomizeCity() {
-        city = new City(region.getTowns()[random.nextInt(3)]);
+        city = new City(region.getTowns()[random.nextInt(3)], random.nextInt(8), random.nextInt(13)) ;
     }
 
     public RegionEnum getRegion() {
