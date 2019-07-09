@@ -926,8 +926,8 @@ public class createRegionActivity extends AppCompatActivity {
             stripe.setClickable(false);
         }
         if (shopping) {
-            if (price > player.getPokeDollars()) {
-                txt = "Insufficient Funds!";
+            if (price > player.getPokeDollars() || player.getShip().getNumberOfCargo() == player.getShip().getCargoBay()) {
+                txt = (price > player.getPokeDollars()) ? "Insufficient Funds!" : "Insufficient Space!";
                 okButton.setVisibility(View.VISIBLE);
                 yesButton.setVisibility(View.GONE);
                 noButton.setVisibility(View.GONE);
