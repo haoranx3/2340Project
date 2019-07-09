@@ -1,48 +1,44 @@
 package com.example.a2340project.entity;
 
-import java.util.ArrayList;
+import java.util.Random;
 
 public class Region {
-    private final String name;
-    private final double xCoordinate;
-    private final double yCoordinate;
-    private final int techLevel;
-    private final int resources;
-    private final ArrayList<City> cityList = new ArrayList<>(2);
+    private RegionEnum region;
+    private int x;
+    private int y;
+    private City city;
+    private Random random = new Random();
 
-    public Region(String name, double xCoordinate, double yCoordinate, int techLevel, int resources, City city1, City city2) {
-        this.name = name;
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
-        this.techLevel = techLevel;
-        this.resources = resources;
-        cityList.add(city1);
-        cityList.add(city2);
+    public Region(RegionEnum region, int x, int y, int index) {
+        this.region = region;
+        this.x = region.getX();
+        this.y = region.getY();
+        this.city = new City(region.getTowns()[index], random.nextInt(8), random.nextInt(13));
     }
 
-    public String getName() {
-        return name;
+    public void randomizeCity() {
+        city = new City(region.getTowns()[random.nextInt(3)], random.nextInt(8), random.nextInt(13)) ;
     }
 
-    public double getxCoordinate() {
-        return xCoordinate;
+    public RegionEnum getRegion() {
+        return region;
     }
 
-    public double getyCoordinate() {
-        return yCoordinate;
+    public int getX() {
+        return x;
     }
 
-    public int getTechLevel() {
-        return techLevel;
+    public int getY() {
+        return y;
     }
 
-    public int getResources() {
-        return resources;
+    public City getCity() {
+        return city;
     }
 
     public String toString() {
-        return String.format("Region: %s, xCoordinate: %f, yCoordinate: %f, techLevel: %d, resources: %d, " +
-                "City1: %s, City2: %s\n", name, xCoordinate, yCoordinate, techLevel, resources, cityList.get(0).getCityName(), cityList.get(1).getCityName());
+        return String.format("Region: %s, xCoordinate: %d, yCoordinate: %d, " +
+                "City: %s%n", region.getName(), x, y, city.getCityName());
     }
 
 }

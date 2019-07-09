@@ -21,9 +21,12 @@
     <string name="hard">Hard</string>
     <string name="impossible">Impossible</string>
     <string name="confirm">Right...\nSo your name is</string>
-    <string name="yes">Confirm</string>
-    <string name="no">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string name="exit">Exit</string>
     <string name="map">Map</string>
+    <string name="ship">Ship</string>
+    <string name="regionText">Pallet Town, Kanto</string>
+    <string name="back">Back</string>
 </resources>
 
