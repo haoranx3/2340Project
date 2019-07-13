@@ -28,5 +28,7 @@
     <string name="ship">Ship</string>
     <string name="regionText">Pallet Town, Kanto</string>
     <string name="back">Back</string>
+    <string name="saveGame">Save</string>
+    <string name="loadGame">Load</string>
 </resources>
 
