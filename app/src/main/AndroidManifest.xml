@@ -10,8 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".views.createRegionActivity"
-            android:theme="@style/AppTheme">
+            android:name=".views.createRegionActivity">
         </activity>
         <activity
             android:name=".views.displayPlayerActivity"

@@ -704,27 +704,14 @@ public class createRegionActivity extends AppCompatActivity {
                 selectFX.setVolume(1f/10f,1f/10f);
                 selectFX.start();
                 confirmEncounter.setVisibility(View.GONE);
-                final Runnable runnable = new Runnable() {
+
+                handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         shopLayoutParams.setMargins(0, shopLayoutParams.topMargin + 100, 0, shopLayoutParams.bottomMargin - 100);
                         shopContainer.setLayoutParams(shopLayoutParams);
                         if (shopLayoutParams.topMargin != 0) {
                             handler.postDelayed(this, 10);
-                        }
-                    }
-                };
-
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        layoutParams.setMargins(layoutParams.leftMargin + 50, 0, layoutParams.rightMargin - 50, 0);
-                        container.setLayoutParams(layoutParams);
-                        if (layoutParams.rightMargin != -1500) {
-                            handler.postDelayed(this, 10);
-                        } else {
-                            container.setVisibility(View.GONE);
-                            handler.postDelayed(runnable, 10);
                         }
                     }
                 }, 100);
@@ -1098,17 +1085,40 @@ public class createRegionActivity extends AppCompatActivity {
                 }
             }, 100);
         } else {
-            player.getShip().setHullStrength(player.getShip().getHullStrength() - 2);
+            int damage = 0;
+            switch (player.getDifficulty()) {
+                case "Easy":
+                    damage = 2;
+                    break;
+                case "Normal":
+                    damage = 3;
+                    break;
+                case "Hard":
+                    damage = 4;
+                    break;
+                case "Impossible":
+                    damage = 5;
+                    break;
+                default:
+                    break;
+            }
+            player.getShip().setHullStrength(player.getShip().getHullStrength() - damage);
             txt = "A trainer attacked you! Your health is now " + player.getShip().getHullStrength() + "!";
-            confirmEncounter.setVisibility(View.VISIBLE);
+            encounterMessage.setText(txt);
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    layoutParams.setMargins(layoutParams.leftMargin + 50, 0, layoutParams.rightMargin - 50, 0);
+                    container.setLayoutParams(layoutParams);
+                    if (layoutParams.rightMargin != -1500) {
+                        handler.postDelayed(this, 10);
+                    } else {
+                        container.setVisibility(View.GONE);
+                        confirmEncounter.setVisibility(View.VISIBLE);
+                    }
+                }
+            }, 100);
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
-        return true;
     }
 
 }
