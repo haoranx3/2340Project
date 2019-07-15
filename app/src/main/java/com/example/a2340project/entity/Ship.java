@@ -81,4 +81,9 @@ public class Ship {
     public void setFuel(int fuel) {
         this.fuel = fuel;
     }
+
+    public void setHullStrength(int hullStrength) {
+        this.hullStrength = (hullStrength < 0) ? 0 : hullStrength;
+    }
+
 }
