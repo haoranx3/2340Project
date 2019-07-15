@@ -2,14 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/configScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/color"
-    tools:context=".views.createPlayerActivity">
+    tools:context=".views.createPlayerActivity"
+    tools:ignore="Overdraw">
 
     <ImageView
-        android:id="@+id/professorOak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -47,7 +46,6 @@
         app:fontFamily="serif-monospace" />
 
     <TextView
-        android:id="@+id/usernameTextShadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -69,7 +67,6 @@
         app:fontFamily="@font/skranji" />
 
     <TextView
-        android:id="@+id/usernameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -101,10 +98,11 @@
         android:layout_marginTop="90dp"
         android:ems="10"
         android:hint="@string/usernameHint"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:importantForAutofill="no"
+        tools:targetApi="o" />
 
     <TextView
-        android:id="@+id/skillsTextShadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -126,7 +124,6 @@
         app:fontFamily="@font/skranji" />
 
     <TextView
-        android:id="@+id/skillsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -162,7 +159,7 @@
         android:paddingEnd="0dp"
         android:paddingRight="0dp"
         android:paddingBottom="1dp"
-        android:text="16pts"
+        android:text="@string/pts"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
@@ -184,7 +181,7 @@
         android:paddingEnd="0dp"
         android:paddingRight="0dp"
         android:paddingBottom="1dp"
-        android:text="16pts"
+        android:text="@string/pts"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="30sp"
@@ -228,7 +225,7 @@
         android:paddingEnd="0dp"
         android:paddingRight="0dp"
         android:paddingBottom="1dp"
-        android:text="0"
+        android:text="@string/zeroPoints"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -252,7 +249,8 @@
         android:textColor="#FFFFFF"
         android:textSize="10sp"
         android:visibility="visible"
-        app:fontFamily="@font/skranji" />
+        app:fontFamily="@font/skranji"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/sailorPlus"
@@ -271,7 +269,8 @@
         android:textColor="#FFFFFF"
         android:textSize="10sp"
         android:visibility="visible"
-        app:fontFamily="@font/skranji" />
+        app:fontFamily="@font/skranji"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/trainerText"
@@ -312,7 +311,7 @@
         android:paddingEnd="0dp"
         android:paddingRight="0dp"
         android:paddingBottom="1dp"
-        android:text="0"
+        android:text="@string/zeroPoints"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -337,7 +336,8 @@
         android:textColor="#FFFFFF"
         android:textSize="10sp"
         android:visibility="visible"
-        app:fontFamily="@font/skranji" />
+        app:fontFamily="@font/skranji"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/trainerPlus"
@@ -357,7 +357,8 @@
         android:textColor="#FFFFFF"
         android:textSize="10sp"
         android:visibility="visible"
-        app:fontFamily="@font/skranji" />
+        app:fontFamily="@font/skranji"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/traderText"
@@ -398,7 +399,7 @@
         android:paddingEnd="0dp"
         android:paddingRight="0dp"
         android:paddingBottom="1dp"
-        android:text="0"
+        android:text="@string/zeroPoints"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -423,7 +424,8 @@
         android:textColor="#FFFFFF"
         android:textSize="10sp"
         android:visibility="visible"
-        app:fontFamily="@font/skranji" />
+        app:fontFamily="@font/skranji"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/traderPlus"
@@ -443,7 +445,8 @@
         android:textColor="#FFFFFF"
         android:textSize="10sp"
         android:visibility="visible"
-        app:fontFamily="@font/skranji" />
+        app:fontFamily="@font/skranji"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/engineerText"
@@ -484,7 +487,7 @@
         android:paddingEnd="0dp"
         android:paddingRight="0dp"
         android:paddingBottom="1dp"
-        android:text="0"
+        android:text="@string/zeroPoints"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -509,7 +512,8 @@
         android:textColor="#FFFFFF"
         android:textSize="10sp"
         android:visibility="visible"
-        app:fontFamily="@font/skranji" />
+        app:fontFamily="@font/skranji"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/engineerPlus"
@@ -529,7 +533,8 @@
         android:textColor="#FFFFFF"
         android:textSize="10sp"
         android:visibility="visible"
-        app:fontFamily="@font/skranji" />
+        app:fontFamily="@font/skranji"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/createButton"

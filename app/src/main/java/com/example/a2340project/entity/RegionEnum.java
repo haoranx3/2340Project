@@ -1,5 +1,8 @@
 package com.example.a2340project.entity;
 
+/**
+ * RegionEnum enum
+ */
 public enum RegionEnum {
     KANTO("Kanto", new String[] {"Pallet Town", "Cinnabar Island"}, 0, 0),
     JOHTO("Johto",new String[] {"New Bark Town", "Goldenrod City"}, -1, 1),
@@ -14,10 +17,10 @@ public enum RegionEnum {
     FIORE("Fiore",new String[] {"Fall City", "Wintown"}, 1, -2),
     ORANGEISLANDS("Orange Islands",new String[] {"Tangelo Island", "Mandarin Island"}, 2, -2);
 
-    String name;
-    String[] towns;
-    int x;
-    int y;
+    private final String name;
+    private final String[] towns;
+    private final int x;
+    private final int y;
 
     RegionEnum(String name, String[] towns, int x, int y) {
         this.name = name;
@@ -26,18 +29,35 @@ public enum RegionEnum {
         this.y = y;
     }
 
+    /**
+     * get name
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * get towns
+     * @return towns
+     */
     public String[] getTowns() {
+        //noinspection AssignmentOrReturnOfFieldWithMutableType
         return towns;
     }
 
+    /**
+     * get x
+     * @return x
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * get y
+     * @return y
+     */
     public int getY() {
         return y;
     }

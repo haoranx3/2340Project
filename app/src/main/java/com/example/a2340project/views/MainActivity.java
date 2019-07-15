@@ -9,9 +9,12 @@ import android.widget.Button;
 
 import com.example.a2340project.R;
 
+/**
+ * MainActivity class
+ */
+
 public class MainActivity extends AppCompatActivity {
 
-    private Button playButton;
     private MediaPlayer bgm;
     private MediaPlayer selectFX;
 
@@ -20,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        playButton = findViewById(R.id.playButton);
+        Button playButton = findViewById(R.id.playButton);
 
         bgm = MediaPlayer.create(this, R.raw.title);
         bgm.setLooping(true);
@@ -33,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent selectDifficultyIntent = new Intent(getApplicationContext(), selectDifficultyActivity.class);
+                Intent selectDifficultyIntent = new Intent(getApplicationContext(),
+                        selectDifficultyActivity.class);
                 startActivity(selectDifficultyIntent);
                 bgm.release();
                 selectFX.start();

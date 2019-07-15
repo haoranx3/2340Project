@@ -6,14 +6,14 @@ import com.example.a2340project.entity.Player;
 
 import java.util.List;
 
-public abstract class Interactor {
-    private Repository myRepository;
+abstract class Interactor {
+    private final Repository myRepository;
 
-    protected Interactor(Repository repo) {
+    Interactor(Repository repo) {
         myRepository = repo;
     }
 
-    protected Repository getRepository() {
+    Repository getRepository() {
         return myRepository;
     }
 

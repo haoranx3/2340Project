@@ -11,10 +11,13 @@ import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.a2340project.entity.Player;
 import com.example.a2340project.viewmodels.CreatePlayerViewModel;
 
 import com.example.a2340project.R;
+
+/**
+ * createPlayerActivity class
+ */
 
 public class createPlayerActivity extends AppCompatActivity {
 
@@ -26,22 +29,12 @@ public class createPlayerActivity extends AppCompatActivity {
     private EditText usernameField;
 
     private TextView sailorPoints;
-    private Button sailorMinus;
-    private Button sailorPlus;
 
     private TextView trainerPoints;
-    private Button trainerMinus;
-    private Button trainerPlus;
 
     private TextView traderPoints;
-    private Button traderMinus;
-    private Button traderPlus;
 
     private TextView engineerPoints;
-    private Button engineerMinus;
-    private Button engineerPlus;
-
-    private Button createButton;
 
     private int numPoints;
 
@@ -59,22 +52,22 @@ public class createPlayerActivity extends AppCompatActivity {
         usernameField = findViewById(R.id.usernameInput);
 
         sailorPoints = findViewById(R.id.sailorPoints);
-        sailorMinus = findViewById(R.id.sailorMinus);
-        sailorPlus = findViewById(R.id.sailorPlus);
+        Button sailorMinus = findViewById(R.id.sailorMinus);
+        Button sailorPlus = findViewById(R.id.sailorPlus);
 
         trainerPoints = findViewById(R.id.trainerPoints);
-        trainerMinus = findViewById(R.id.trainerMinus);
-        trainerPlus = findViewById(R.id.trainerPlus);
+        Button trainerMinus = findViewById(R.id.trainerMinus);
+        Button trainerPlus = findViewById(R.id.trainerPlus);
 
         traderPoints = findViewById(R.id.traderPoints);
-        traderMinus = findViewById(R.id.traderMinus);
-        traderPlus = findViewById(R.id.traderPlus);
+        Button traderMinus = findViewById(R.id.traderMinus);
+        Button traderPlus = findViewById(R.id.traderPlus);
 
         engineerPoints = findViewById(R.id.engineerPoints);
-        engineerMinus = findViewById(R.id.engineerMinus);
-        engineerPlus = findViewById(R.id.engineerPlus);
+        Button engineerMinus = findViewById(R.id.engineerMinus);
+        Button engineerPlus = findViewById(R.id.engineerPlus);
 
-        createButton = findViewById(R.id.createButton);
+        Button createButton = findViewById(R.id.createButton);
 
         numPoints = 16;
 
@@ -82,7 +75,7 @@ public class createPlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int pts = Integer.parseInt(sailorPoints.getText().toString());
-                if (numPoints != 16 && pts != 0) {
+                if ((numPoints != 16) && (pts != 0)) {
                     selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
                     selectFX.setVolume(1f/10f,1f/10f);
                     selectFX.start();
@@ -99,7 +92,7 @@ public class createPlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int pts = Integer.parseInt(sailorPoints.getText().toString());
-                if (numPoints != 0 && pts != 16) {
+                if ((numPoints != 0) && (pts != 16)) {
                     selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
                     selectFX.setVolume(1f/10f,1f/10f);
                     selectFX.start();
@@ -116,7 +109,7 @@ public class createPlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int pts = Integer.parseInt(trainerPoints.getText().toString());
-                if (numPoints != 16 && pts != 0) {
+                if ((numPoints != 16) && (pts != 0)) {
                     selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
                     selectFX.setVolume(1f/10f,1f/10f);
                     selectFX.start();
@@ -133,7 +126,7 @@ public class createPlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int pts = Integer.parseInt(trainerPoints.getText().toString());
-                if (numPoints != 0 && pts != 16) {
+                if ((numPoints != 0) && (pts != 16)) {
                     selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
                     selectFX.setVolume(1f/10f,1f/10f);
                     selectFX.start();
@@ -150,7 +143,7 @@ public class createPlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int pts = Integer.parseInt(traderPoints.getText().toString());
-                if (numPoints != 16 && pts != 0) {
+                if ((numPoints != 16) && (pts != 0)) {
                     selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
                     selectFX.setVolume(1f/10f,1f/10f);
                     selectFX.start();
@@ -167,7 +160,7 @@ public class createPlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int pts = Integer.parseInt(traderPoints.getText().toString());
-                if (numPoints != 0 && pts != 16) {
+                if ((numPoints != 0) && (pts != 16)) {
                     selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
                     selectFX.setVolume(1f/10f,1f/10f);
                     selectFX.start();
@@ -184,7 +177,7 @@ public class createPlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int pts = Integer.parseInt(engineerPoints.getText().toString());
-                if (numPoints != 16 && pts != 0) {
+                if ((numPoints != 16) && (pts != 0)) {
                     selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
                     selectFX.setVolume(1f/10f,1f/10f);
                     selectFX.start();
@@ -201,7 +194,7 @@ public class createPlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int pts = Integer.parseInt(engineerPoints.getText().toString());
-                if (numPoints != 0 && pts != 16) {
+                if ((numPoints != 0) && (pts != 16)) {
                     selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
                     selectFX.setVolume(1f/10f,1f/10f);
                     selectFX.start();
@@ -221,8 +214,9 @@ public class createPlayerActivity extends AppCompatActivity {
                 selectFX.setVolume(1f/10f,1f/10f);
                 selectFX.start();
                 int usernameLength = usernameField.getText().toString().trim().length();
-                if (usernameLength == 0 || numPoints != 0) {
-                    String err = (usernameLength == 0) ? "Must enter a username!" : "Must allocate all points!";
+                if ((usernameLength == 0) || (numPoints != 0)) {
+                    String err = (usernameLength == 0) ? "Must enter a username!"
+                            : "Must allocate all points!";
                     Toast toast = Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER, 0,0);
                     toast.show();
@@ -232,7 +226,8 @@ public class createPlayerActivity extends AppCompatActivity {
                     int trainerSkills = Integer.parseInt(trainerPoints.getText().toString());
                     int traderSkills = Integer.parseInt(traderPoints.getText().toString());
                     int engineerSkills = Integer.parseInt(engineerPoints.getText().toString());
-                    Intent displayPlayerIntent = new Intent(getApplicationContext(), displayPlayerActivity.class);
+                    Intent displayPlayerIntent = new Intent(getApplicationContext(),
+                            displayPlayerActivity.class);
                     displayPlayerIntent.putExtra("username", username);
                     displayPlayerIntent.putExtra("sailorPoints", sailorSkills);
                     displayPlayerIntent.putExtra("trainerPoints", trainerSkills);

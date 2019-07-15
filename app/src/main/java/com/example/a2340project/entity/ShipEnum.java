@@ -1,63 +1,65 @@
 package com.example.a2340project.entity;
 
+/**
+ * ShipEnum enum
+ */
 public enum ShipEnum {
-    SSAnne("S.S. Anne", 25, 15, 1, 0, 1, 1, 14, 2);
+    SSAnne("S.S. Anne", 25, 15, 1, 0, 1, 1, 14, 2),
+    Ship("ship", 100, 100, 100, 100, 100, 100, 100, 100);
 
-    private String name;
-    private int hullStrength;
-    private int cargoBay;
-    private int weaponSlots;
-    private int shieldSlots;
-    private int gadgetSlots;
-    private int crew;
-    private int fuel;
-    private int fuelCost;
+    private final String name;
+    private final int hullStrength;
+    private final int cargoBay;
+    private final int fuel;
 
-    ShipEnum(String name, int hull, int cargo, int weapon, int shield, int gadget, int crew, int fuel, int cost) {
+    /**
+     * make ShipEnum
+     * @param name name
+     * @param hull hull
+     * @param cargo cargo
+     * @param weapon weapon
+     * @param shield shield
+     * @param gadget gadget
+     * @param crew crew
+     */
+    @SuppressWarnings("ConstructorWithTooManyParameters")
+    ShipEnum(String name, int hull, int cargo, int weapon, int shield, int gadget, int crew,
+             int fuel, int cost) {
         this.name = name;
         hullStrength = hull;
         cargoBay = cargo;
-        weaponSlots = weapon;
-        shieldSlots = shield;
-        gadgetSlots = gadget;
-        this.crew = crew;
         this.fuel = fuel;
-        fuelCost = cost;
     }
 
+    /**
+     * get name
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * get hull
+     * @return hull
+     */
     public int getHullStrength() {
         return hullStrength;
     }
 
+    /**
+     * get cargo
+     * @return cargo
+     */
     public int getCargoBay() {
         return cargoBay;
     }
 
-    public int getWeaponSlots() {
-        return weaponSlots;
-    }
-
-    public int getShieldSlots() {
-        return shieldSlots;
-    }
-
-    public int getGadgetSlots() {
-        return gadgetSlots;
-    }
-
-    public int getCrew() {
-        return crew;
-    }
-
+    /**
+     * get fuel
+     * @return fuel
+     */
     public int getFuel() {
         return fuel;
-    }
-
-    public int getFuelCost() {
-        return fuelCost;
     }
 }
