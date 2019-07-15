@@ -49,6 +49,10 @@ public class createRegionActivity extends AppCompatActivity {
     private Button declineTravel;
     private Button okTravel;
 
+    private RelativeLayout confirmEncounter;
+    private TextView encounterMessage;
+    private Button okEncounter;
+
     private RelativeLayout fuel;
     private TextView fuelText;
 
@@ -158,6 +162,10 @@ public class createRegionActivity extends AppCompatActivity {
         acceptTravel = findViewById(R.id.acceptTravel);
         declineTravel = findViewById(R.id.declineTravel);
         okTravel = findViewById(R.id.okTravel);
+
+        confirmEncounter = findViewById(R.id.encounter);
+        encounterMessage = findViewById(R.id.encounterMessage);
+        okEncounter = findViewById(R.id.okEncounter);
 
         fuel = findViewById(R.id.fuel);
         fuelText = findViewById(R.id.fuelText);
@@ -689,6 +697,40 @@ public class createRegionActivity extends AppCompatActivity {
             }
         });
 
+        okEncounter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                selectFX.setVolume(1f/10f,1f/10f);
+                selectFX.start();
+                confirmEncounter.setVisibility(View.GONE);
+                final Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        shopLayoutParams.setMargins(0, shopLayoutParams.topMargin + 100, 0, shopLayoutParams.bottomMargin - 100);
+                        shopContainer.setLayoutParams(shopLayoutParams);
+                        if (shopLayoutParams.topMargin != 0) {
+                            handler.postDelayed(this, 10);
+                        }
+                    }
+                };
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        layoutParams.setMargins(layoutParams.leftMargin + 50, 0, layoutParams.rightMargin - 50, 0);
+                        container.setLayoutParams(layoutParams);
+                        if (layoutParams.rightMargin != -1500) {
+                            handler.postDelayed(this, 10);
+                        } else {
+                            container.setVisibility(View.GONE);
+                            handler.postDelayed(runnable, 10);
+                        }
+                    }
+                }, 100);
+            }
+        });
+
         final String TAG = "Display Tag";
         for (Region var: regions) {
             Log.d(TAG, var.toString());
@@ -710,6 +752,7 @@ public class createRegionActivity extends AppCompatActivity {
         layoutParams.setMargins(-1300, 0, 1300, 0);
         container.setLayoutParams(layoutParams);
         container.setVisibility(View.VISIBLE);
+        confirmEncounter.setVisibility(View.GONE);
 
         RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos, oblivia, sevii, orre, almia, fiore, orange};
         for (RelativeLayout region : regionBoxes) {
@@ -1029,30 +1072,36 @@ public class createRegionActivity extends AppCompatActivity {
         for (RelativeLayout region : regionBoxes) {
             region.setVisibility(View.GONE);
         }
-        final Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                shopLayoutParams.setMargins(0, shopLayoutParams.topMargin + 100, 0, shopLayoutParams.bottomMargin - 100);
-                shopContainer.setLayoutParams(shopLayoutParams);
-                if (shopLayoutParams.topMargin != 0) {
-                    handler.postDelayed(this, 10);
+        if (random.nextInt() % 2 == 1) {
+            final Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    shopLayoutParams.setMargins(0, shopLayoutParams.topMargin + 100, 0, shopLayoutParams.bottomMargin - 100);
+                    shopContainer.setLayoutParams(shopLayoutParams);
+                    if (shopLayoutParams.topMargin != 0) {
+                        handler.postDelayed(this, 10);
+                    }
                 }
-            }
-        };
+            };
 
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                layoutParams.setMargins(layoutParams.leftMargin + 50, 0, layoutParams.rightMargin - 50, 0);
-                container.setLayoutParams(layoutParams);
-                if (layoutParams.rightMargin != -1500) {
-                    handler.postDelayed(this, 10);
-                } else {
-                    container.setVisibility(View.GONE);
-                    handler.postDelayed(runnable, 10);
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    layoutParams.setMargins(layoutParams.leftMargin + 50, 0, layoutParams.rightMargin - 50, 0);
+                    container.setLayoutParams(layoutParams);
+                    if (layoutParams.rightMargin != -1500) {
+                        handler.postDelayed(this, 10);
+                    } else {
+                        container.setVisibility(View.GONE);
+                        handler.postDelayed(runnable, 10);
+                    }
                 }
-            }
-        }, 100);
+            }, 100);
+        } else {
+            player.getShip().setHullStrength(player.getShip().getHullStrength() - 2);
+            txt = "A trainer attacked you! Your health is now " + player.getShip().getHullStrength() + "!";
+            confirmEncounter.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

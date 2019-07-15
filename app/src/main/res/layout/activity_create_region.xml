@@ -1263,7 +1263,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/textbox"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/travelMessage"
@@ -1329,6 +1329,50 @@
             android:textAllCaps="false"
             android:textSize="15sp"
             tools:visibility="gone" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/encounter"
+        android:layout_width="380dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/textbox"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/encounterMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:lineSpacingExtra="10sp"
+            android:text="A trainer attacked you! Your health is now 25!"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:visibility="visible"
+            app:fontFamily="@font/skranji" />
+
+        <Button
+            android:id="@+id/okEncounter"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="75dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="false"
+            android:layout_centerInParent="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:background="#8A3E20"
+            android:text="@android:string/ok"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            tools:visibility="visible" />
     </RelativeLayout>
 
 </RelativeLayout>
