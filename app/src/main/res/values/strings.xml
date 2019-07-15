@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">PokéTraders</string>
-    <string name="action_settings">Settings</string>
     <string name="play">Play</string>
     <string name="oak">Professor Oak</string>
     <string name="chatbox">Welcome Text</string>
-    <string name="welcome">Welcome to the world of Pokémon! Tell me a little about yourself!</string>
+    <string name="welcome">Welcome to the world of Pokémon! Tell me a little about yourself!
+    </string>
     <string name="username">Username:</string>
     <string name="usernameHint">Enter a username</string>
     <string name="skills">Skills:</string>
@@ -20,15 +20,15 @@
     <string name="normal">Normal</string>
     <string name="hard">Hard</string>
     <string name="impossible">Impossible</string>
-    <string name="confirm">Right...\nSo your name is</string>
+    <string name="confirm">Right…\nSo your name is</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="exit">Exit</string>
     <string name="map">Map</string>
     <string name="ship">Ship</string>
-    <string name="regionText">Pallet Town, Kanto</string>
     <string name="back">Back</string>
-    <string name="saveGame">Save</string>
-    <string name="loadGame">Load</string>
+    <string name="sprite">sprite</string>
+    <string name="pts">16pts</string>
+    <string name="zeroPoints">0</string>
 </resources>
 

@@ -1,87 +1,95 @@
 package com.example.a2340project.entity;
 
+/**
+ * ship class
+ */
 public class Ship {
-    private ShipEnum ship;
-    private String name;
     private int hullStrength;
-    private int cargoBay;
-    private int weaponSlots;
-    private int shieldSlots;
-    private int gadgetSlots;
-    private int crew;
+    private final int cargoBay;
     private int fuel;
-    private int fuelCost;
 
-    private int[] cargo = {0,0,0,0,0,0,0,0,0,0};
-    private int numberOfCargo = 0;
+    private final int[] cargo = {0,0,0,0,0,0,0,0,0,0};
+    private int numberOfCargo;
 
+    /**
+     * makes ship
+     * @param type type
+     */
     public Ship(ShipEnum type) {
-        ship = type;
-        name = type.getName();
+        //noinspection unused
         hullStrength = type.getHullStrength();
         cargoBay = type.getCargoBay();
-        weaponSlots = type.getWeaponSlots();
-        shieldSlots = type.getShieldSlots();
-        gadgetSlots = type.getGadgetSlots();
-        crew = type.getCrew();
         fuel = type.getFuel();
-        fuelCost = type.getFuelCost();
     }
 
-    public String getName() {
-        return name;
-    }
-
+    /**
+     * get hull
+     * @return hull
+     */
     public int getHullStrength() {
         return hullStrength;
     }
 
+    /**
+     * get bay
+     * @return bay
+     */
     public int getCargoBay() {
         return cargoBay;
     }
 
-    public int getWeaponSlots() {
-        return weaponSlots;
-    }
-
-    public int getShieldSlots() {
-        return shieldSlots;
-    }
-
-    public int getGadgetSlots() {
-        return gadgetSlots;
-    }
-
-    public int getCrew() {
-        return crew;
-    }
-
+    /**
+     * get fuel
+     * @return fuel
+     */
     public int getFuel() {
         return fuel;
     }
 
-    public int getFuelCost() {
-        return fuelCost;
-    }
-
+    /**
+     * get cargo
+     * @param indexForItem index
+     * @return cargo
+     */
     public int getCargo(int indexForItem) {
         return cargo[indexForItem];
     }
 
+    /**
+     * set cargo
+     * @param indexForItem index
+     * @param quantityOfItem number
+     */
     public void setCargo(int indexForItem, int quantityOfItem) {
         cargo[indexForItem] = quantityOfItem;
     }
 
+    /**
+     * get cargo number
+     * @return cargo number
+     */
     public int getNumberOfCargo() { return numberOfCargo; }
 
+    /**
+     * set cargo number
+     * @param numberOfCargo cargo number
+     */
     public void setNumberOfCargo(int numberOfCargo) {
         this.numberOfCargo = numberOfCargo;
     }
 
+    /**
+     * set fuel
+     * @param fuel fuel
+     */
     public void setFuel(int fuel) {
         this.fuel = fuel;
     }
 
+    /**
+     * set hull
+     * @param hullStrength hull
+     */
     public void setHullStrength(int hullStrength) {
         this.hullStrength = (hullStrength < 0) ? 0 : hullStrength;
     }

@@ -9,12 +9,10 @@ import android.widget.Button;
 
 import com.example.a2340project.R;
 
+/**
+ * selectDifficultyActivity screen
+ */
 public class selectDifficultyActivity extends AppCompatActivity {
-
-    private Button easyButton;
-    private Button normalButton;
-    private Button hardButton;
-    private Button impossibleButton;
 
     private MediaPlayer bgm;
     private MediaPlayer selectFX;
@@ -24,10 +22,10 @@ public class selectDifficultyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_difficulty);
 
-        easyButton = findViewById(R.id.easyButton);
-        normalButton = findViewById(R.id.normalButton);
-        hardButton = findViewById(R.id.hardButton);
-        impossibleButton = findViewById(R.id.impossibleButton);
+        Button easyButton = findViewById(R.id.easyButton);
+        Button normalButton = findViewById(R.id.normalButton);
+        Button hardButton = findViewById(R.id.hardButton);
+        Button impossibleButton = findViewById(R.id.impossibleButton);
 
         bgm = MediaPlayer.create(this, R.raw.fortree);
         bgm.setLooping(true);
@@ -40,7 +38,8 @@ public class selectDifficultyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 selectFX.start();
-                Intent createPlayerScreenIntent = new Intent(getApplicationContext(), createPlayerActivity.class);
+                Intent createPlayerScreenIntent = new Intent(getApplicationContext(),
+                        createPlayerActivity.class);
                 createPlayerScreenIntent.putExtra("diff", "Easy");
                 startActivity(createPlayerScreenIntent);
             }
@@ -50,7 +49,8 @@ public class selectDifficultyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 selectFX.start();
-                Intent createPlayerScreenIntent = new Intent(getApplicationContext(), createPlayerActivity.class);
+                Intent createPlayerScreenIntent = new Intent(getApplicationContext(),
+                        createPlayerActivity.class);
                 createPlayerScreenIntent.putExtra("diff", "Normal");
                 startActivity(createPlayerScreenIntent);
             }
@@ -60,7 +60,8 @@ public class selectDifficultyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 selectFX.start();
-                Intent createPlayerScreenIntent = new Intent(getApplicationContext(), createPlayerActivity.class);
+                Intent createPlayerScreenIntent = new Intent(getApplicationContext(),
+                        createPlayerActivity.class);
                 createPlayerScreenIntent.putExtra("diff", "Hard");
                 startActivity(createPlayerScreenIntent);
             }
@@ -70,7 +71,8 @@ public class selectDifficultyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 selectFX.start();
-                Intent createPlayerScreenIntent = new Intent(getApplicationContext(), createPlayerActivity.class);
+                Intent createPlayerScreenIntent = new Intent(getApplicationContext(),
+                        createPlayerActivity.class);
                 createPlayerScreenIntent.putExtra("diff", "Impossible");
                 startActivity(createPlayerScreenIntent);
             }

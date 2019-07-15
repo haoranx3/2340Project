@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/color"
-    tools:context=".views.createRegionActivity">
+    tools:context=".views.createRegionActivity"
+    tools:ignore="Overdraw">
 
     <HorizontalScrollView
         android:id="@+id/map"
@@ -36,7 +37,9 @@
                 android:layout_marginLeft="520dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/regionbox"
-                android:visibility="visible">
+                android:visibility="visible"
+                android:layout_alignParentEnd="false"
+                android:layout_marginStart="520dp">
 
                 <Button
                     android:layout_width="match_parent"
@@ -44,7 +47,8 @@
                     android:background="@android:color/transparent"
                     android:clickable="false"
                     android:text="Orange Islands"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -64,7 +68,8 @@
                     android:background="@android:color/transparent"
                     android:clickable="false"
                     android:text="Fiore"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -83,7 +88,8 @@
                     android:background="@android:color/transparent"
                     android:clickable="false"
                     android:text="Unova"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -102,7 +108,8 @@
                     android:background="@android:color/transparent"
                     android:clickable="false"
                     android:text="Almia"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -122,7 +129,8 @@
                     android:background="@android:color/transparent"
                     android:clickable="false"
                     android:text="Orre"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -142,7 +150,8 @@
                     android:background="@android:color/transparent"
                     android:clickable="false"
                     android:text="Kalos"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -162,7 +171,8 @@
                     android:background="@android:color/transparent"
                     android:clickable="false"
                     android:text="Hoenn"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -182,7 +192,8 @@
                     android:background="@android:color/transparent"
                     android:clickable="false"
                     android:text="Johto"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -199,7 +210,8 @@
                     android:background="@android:color/transparent"
                     android:clickable="false"
                     android:text="Kanto"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -218,7 +230,8 @@
                     android:background="@android:color/transparent"
                     android:clickable="false"
                     android:text="Sinnoh"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -237,7 +250,8 @@
                     android:background="@android:color/transparent"
                     android:clickable="false"
                     android:text="Sevii Islands"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -255,7 +269,8 @@
                     android:background="@android:color/transparent"
                     android:clickable="false"
                     android:text="Oblivia"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
             </RelativeLayout>
 
         </RelativeLayout>
@@ -299,14 +314,12 @@
         android:visibility="gone">
 
         <RelativeLayout
-            android:id="@+id/shopUI"
             android:layout_width="360dp"
             android:layout_height="610dp"
             android:layout_centerInParent="true"
             android:background="#67953B">
 
             <RelativeLayout
-                android:id="@+id/shopBack"
                 android:layout_width="340dp"
                 android:layout_height="590dp"
                 android:layout_alignParentTop="true"
@@ -334,7 +347,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="35sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        tools:ignore="HardcodedText" />
 
                     <TextView
                         android:id="@+id/cityText"
@@ -375,7 +389,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:id="@+id/waterPrice"
@@ -391,7 +406,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -405,7 +421,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -419,7 +436,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                 </RelativeLayout>
 
@@ -445,7 +463,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:id="@+id/scarfPrice"
@@ -461,7 +480,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -475,7 +495,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -489,7 +510,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                 </RelativeLayout>
 
@@ -515,7 +537,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:id="@+id/berriesPrice"
@@ -531,7 +554,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -545,7 +569,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -559,7 +584,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        tools:ignore="RtlHardcoded" />
 
                 </RelativeLayout>
 
@@ -585,7 +611,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:id="@+id/nuggetsPrice"
@@ -601,7 +628,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -615,7 +643,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -629,7 +658,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                 </RelativeLayout>
 
@@ -655,7 +685,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:id="@+id/pokedollPrice"
@@ -671,7 +702,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -685,7 +717,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -699,7 +732,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                 </RelativeLayout>
 
@@ -725,7 +759,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:id="@+id/pokemonPrice"
@@ -741,7 +776,9 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true"
+                        tools:ignore="HardcodedText" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -755,7 +792,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -769,7 +807,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                 </RelativeLayout>
 
@@ -795,7 +834,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:id="@+id/potionsPrice"
@@ -811,7 +851,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -825,7 +866,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -839,7 +881,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                 </RelativeLayout>
 
@@ -865,7 +908,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:id="@+id/tmPrice"
@@ -881,7 +925,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -895,7 +940,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -909,7 +955,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                 </RelativeLayout>
 
@@ -935,7 +982,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:id="@+id/mushroomPrice"
@@ -951,7 +999,9 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true"
+                        tools:ignore="TooManyViews" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -965,7 +1015,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -979,7 +1030,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                 </RelativeLayout>
 
@@ -1005,7 +1057,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:id="@+id/pokeballPrice"
@@ -1021,7 +1074,9 @@
                         android:textColor="#CF7766"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        tools:ignore="RtlHardcoded"
+                        android:layout_alignParentEnd="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1035,7 +1090,8 @@
                         android:textColor="#FFFDFD"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1049,7 +1105,8 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:visibility="visible"
-                        app:fontFamily="@font/skranji" />
+                        app:fontFamily="@font/skranji"
+                        android:layout_marginStart="5dp" />
 
                 </RelativeLayout>
 
@@ -1058,7 +1115,6 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/regionBox"
             android:layout_width="130dp"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
@@ -1081,13 +1137,13 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/creditBox"
             android:layout_width="130dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/textbox">
+            android:background="@drawable/textbox"
+            android:layout_alignParentEnd="true">
 
             <TextView
                 android:id="@+id/creditText"
@@ -1105,7 +1161,6 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/sellBox"
             android:layout_width="130dp"
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
@@ -1122,14 +1177,14 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/mapBox"
             android:layout_width="130dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/textbox">
+            android:background="@drawable/textbox"
+            android:layout_alignParentEnd="true">
 
             <Button
                 android:id="@+id/mapButton"
@@ -1195,7 +1250,8 @@
                 android:text="@string/yes"
                 android:textAllCaps="false"
                 android:textSize="15sp"
-                tools:visibility="visible" />
+                tools:visibility="visible"
+                android:layout_alignParentEnd="true" />
 
             <Button
                 android:id="@+id/ok"
@@ -1230,7 +1286,8 @@
         android:text="@string/back"
         android:textAllCaps="true"
         android:textSize="15sp"
-        tools:visibility="visible" />
+        tools:visibility="visible"
+        android:layout_alignParentEnd="true" />
 
     <RelativeLayout
         android:id="@+id/fuel"
@@ -1311,7 +1368,8 @@
             android:text="@string/yes"
             android:textAllCaps="false"
             android:textSize="15sp"
-            tools:visibility="visible" />
+            tools:visibility="visible"
+            android:layout_alignParentEnd="true" />
 
         <Button
             android:id="@+id/okTravel"
@@ -1372,7 +1430,8 @@
             android:text="@android:string/ok"
             android:textAllCaps="false"
             android:textSize="15sp"
-            tools:visibility="visible" />
+            tools:visibility="visible"
+            tools:ignore="RtlHardcoded" />
     </RelativeLayout>
 
 </RelativeLayout>
