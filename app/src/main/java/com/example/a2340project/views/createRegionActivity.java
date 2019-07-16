@@ -245,8 +245,12 @@ public class createRegionActivity extends AppCompatActivity {
                     random.nextInt(2));
         }
 
-        player = viewModel.getAllPlayers().get(0);
+        if (viewModel.getAllPlayers().size() > 0) {
+            player = viewModel.getAllPlayers().get(0);
+        } else player = new Player("test", "Easy", 1, 1, 1, 1);
         player.setCurrentRegion(regions[random.nextInt(13)]);
+
+
 
         configure();
 
@@ -732,7 +736,6 @@ public class createRegionActivity extends AppCompatActivity {
                 selectFX.setVolume(1f/10f,1f/10f);
                 selectFX.start();
                 confirmEncounter.setVisibility(View.GONE);
-
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -819,6 +822,7 @@ public class createRegionActivity extends AppCompatActivity {
         toggleMap.setClickable(true);
         TextView[] priceText = {waterPrice, scarfPrice, berriesPrice, nuggetsPrice, pokedollPrice,
                 pokemonPrice, potionPrice, tmPrice, mushroomPrice, pokeballPrice};
+        System.out.println(regionText);
         regionText.setText(player.getCurrentRegion().getRegion().getName());
         String symbol = "\u20BD";
         txt = symbol + player.getPokeDollars();
