@@ -1,7 +1,5 @@
 package com.example.a2340project.model;
 
-import android.util.Log;
-
 import com.example.a2340project.entity.Player;
 
 import java.util.List;
@@ -31,6 +29,5 @@ public class PlayerInteractor extends Interactor{
     @Override
     public void updatePlayer(Player p) {
         getRepository().updatePlayer(p);
-        Log.d("APP", "Interactor: updating player: " + p);
     }
 }
