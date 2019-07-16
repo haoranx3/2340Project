@@ -23,9 +23,12 @@ import com.example.a2340project.R;
 import com.example.a2340project.entity.Region;
 import com.example.a2340project.entity.RegionEnum;
 import com.example.a2340project.entity.Player;
+import com.example.a2340project.model.DatabaseHelper;
 import com.example.a2340project.viewmodels.CreatePlayerViewModel;
 
 public class createRegionActivity extends AppCompatActivity {
+
+    int[] arrInfo = getIntent().getIntArrayExtra("array");
 
     private Button exit;
     private HorizontalScrollView map;
@@ -131,6 +134,7 @@ public class createRegionActivity extends AppCompatActivity {
     private Button toggleBag;
     private Button toggleMap;
 
+    DatabaseHelper helper = new DatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -448,33 +452,103 @@ public class createRegionActivity extends AppCompatActivity {
                     switch ((String) confirmText.getText()) {
                         case "Purchase Fresh Water?":
                             purchase(0, player.getCurrentRegion().getCity().getFreshWaterPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Purchase Scarf?":
                             purchase(1, player.getCurrentRegion().getCity().getScarfPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Purchase Berries?":
                             purchase(2, player.getCurrentRegion().getCity().getBerriesPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Purchase Nuggets?":
                             purchase(3, player.getCurrentRegion().getCity().getNuggetsPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Purchase Poké Doll?":
                             purchase(4, player.getCurrentRegion().getCity().getPokeDollPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());;
                             break;
                         case "Purchase Pokémon?":
                             purchase(5, player.getCurrentRegion().getCity().getPokemonPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Purchase Potion?":
                             purchase(6, player.getCurrentRegion().getCity().getPotionsPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Purchase TM?":
                             purchase(7, player.getCurrentRegion().getCity().getTechnicalMachinePrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Purchase Big Mushroom?":
                             purchase(8, player.getCurrentRegion().getCity().getBigMushroomPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Purchase Poké Ball?":
                             purchase(9, player.getCurrentRegion().getCity().getPokeBallPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         default:
                             break;
@@ -483,33 +557,103 @@ public class createRegionActivity extends AppCompatActivity {
                     switch ((String) confirmText.getText()) {
                         case "Sell Fresh Water?":
                             sell(0, player.getCurrentRegion().getCity().getFreshWaterPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Sell Scarf?":
                             sell(1, player.getCurrentRegion().getCity().getScarfPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Sell Berries?":
                             sell(2, player.getCurrentRegion().getCity().getBerriesPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Sell Nuggets?":
                             sell(3, player.getCurrentRegion().getCity().getNuggetsPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Sell Poké Doll?":
                             sell(4, player.getCurrentRegion().getCity().getPokeDollPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Sell Pokémon?":
                             sell(5, player.getCurrentRegion().getCity().getPokemonPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Sell Potion?":
                             sell(6, player.getCurrentRegion().getCity().getPotionsPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Sell TM?":
                             sell(7, player.getCurrentRegion().getCity().getTechnicalMachinePrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Sell Big Mushroom?":
                             sell(8, player.getCurrentRegion().getCity().getBigMushroomPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         case "Sell Poké Ball?":
                             sell(9, player.getCurrentRegion().getCity().getPokeBallPrice());
+                            helper.upDatePlayer(player.getId(),
+                                    player.getShip().getCargo(0), player.getShip().getCargo(1),
+                                    player.getShip().getCargo(2), player.getShip().getCargo(3),
+                                    player.getShip().getCargo(4), player.getShip().getCargo(5),
+                                    player.getShip().getCargo(6), player.getShip().getCargo(7),
+                                    player.getShip().getCargo(8), player.getShip().getCargo(9),
+                                    player.getPokeDollars());
                             break;
                         default:
                             break;

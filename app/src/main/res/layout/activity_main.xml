@@ -17,6 +17,16 @@
         android:text="@string/play" />
 
     <TextView
+        android:id="@+id/oldplayer"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="500dp"
+        android:layout_marginBottom="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/olduser"
+        />
+
+    <TextView
         android:id="@+id/difficultyTextShadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -16,13 +16,14 @@ public class Player {
     /** a globally unique number for this object */
     private int id;
 
-    public Player(String name, String diff, int sailor, int trainer, int trader, int engineer) {
+    public Player(String name, String diff, int sailor, int trainer, int trader, int engineer, int id) {
         username = name;
         difficulty = diff;
         sailorPoints = sailor;
         trainerPoints = trainer;
         traderPoints = trader;
         engineerPoints = engineer;
+        this.id = id;
         pokeDollars = 1000;
         ship = new Ship(ShipEnum.SSAnne);
     }

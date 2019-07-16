@@ -79,6 +79,9 @@ public class Ship {
     }
 
     public void setFuel(int fuel) {
+        if (fuel < 0) {
+            throw new IllegalArgumentException("fuel cannot be negative");
+        }
         this.fuel = fuel;
     }
 }

@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.a2340project.R;
 import com.example.a2340project.entity.Player;
+import com.example.a2340project.model.DatabaseHelper;
 import com.example.a2340project.viewmodels.CreatePlayerViewModel;
 
 public class displayPlayerActivity extends AppCompatActivity {
@@ -37,6 +38,8 @@ public class displayPlayerActivity extends AppCompatActivity {
     private Player player;
 
     private MediaPlayer selectFX;
+
+    DatabaseHelper helper = new DatabaseHelper(this);
 
 
     @Override
@@ -82,17 +85,23 @@ public class displayPlayerActivity extends AppCompatActivity {
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int count = helper.getProfilesCount();
+                helper.close();
                 selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
                 selectFX.setVolume(1f/10f,1f/10f);
                 selectFX.start();
-                player = new Player(username, diff, sailorPoints, trainerPoints, traderPoints, engineerPoints);
+                player = new Player(username, diff, sailorPoints, trainerPoints, traderPoints, engineerPoints, count + 1);
                 viewModel.addPlayer(player);
+
                 Log.d("player added", "Player's name: " + player.getUsername() + " sailor points: " +
                         player.getSailorPoints() + " trainer points: " + player.getTrainerPoints() + " trader points: "
                         + player.getTraderPoints() +
                         " engineer points: "
                         + player.getEngineerPoints() + " credits: " + player.getPokeDollars() + " ship: "
                         + player.getShip().getName());
+
+                helper.insertPlayer(player);
+
                 Intent createRegionIntent = new Intent(getApplicationContext(), createRegionActivity.class);
                 startActivity(createRegionIntent);
             }
