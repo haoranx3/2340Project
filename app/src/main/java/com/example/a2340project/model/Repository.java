@@ -1,7 +1,5 @@
 package com.example.a2340project.model;
 
-import android.util.Log;
-
 import com.example.a2340project.entity.Player;
 
 import java.util.ArrayList;
@@ -54,6 +52,5 @@ class Repository {
                 return;
             }
         }
-        Log.d("APP", "Player not found with id: " + player.getId());
     }
 }

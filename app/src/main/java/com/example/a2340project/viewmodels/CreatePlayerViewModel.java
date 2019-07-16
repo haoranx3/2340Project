@@ -33,7 +33,7 @@ public class CreatePlayerViewModel extends AndroidViewModel {
      */
 
     public void updatePlayer(Player p) {
-        interactor.addPlayer(p);
+        interactor.updatePlayer(p);
     }
 
     /**
