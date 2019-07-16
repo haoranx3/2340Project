@@ -1,13 +1,11 @@
 package com.example.a2340project.model;
 
-import android.util.Log;
-
 import com.example.a2340project.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Repository {
+class Repository {
 
     /***
      * This provides a mechanism to generate simple unique numbers to be used as
@@ -15,10 +13,12 @@ public class Repository {
      */
     private static int next_id = 1;
     private static int getNextUniqueID() {
-        return next_id++;
+        int result = next_id;
+        next_id++;
+        return result;
     }
 
-    private List<Player> allPlayers;
+    private final List<Player> allPlayers;
 
     /**
      * Make a new Repository object
@@ -28,6 +28,7 @@ public class Repository {
     }
 
     public List<Player> getAllPlayers() {
+        //noinspection AssignmentOrReturnOfFieldWithMutableType
         return allPlayers;
     }
 
@@ -42,7 +43,7 @@ public class Repository {
 
     /**
      * a player can only change the username
-     * @param player
+     * @param player player
      */
     public void updatePlayer(Player player) {
         for (Player player1 : allPlayers) {
@@ -51,6 +52,5 @@ public class Repository {
                 return;
             }
         }
-        Log.d("APP", "Player not found with id: " + player.getId());
     }
 }

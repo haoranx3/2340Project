@@ -2,6 +2,7 @@ package com.example.a2340project.views;
 
 import java.util.Random;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 
 import android.arch.lifecycle.ViewModelProviders;
@@ -9,7 +10,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -23,15 +23,18 @@ import com.example.a2340project.entity.RegionEnum;
 import com.example.a2340project.entity.Player;
 import com.example.a2340project.viewmodels.CreatePlayerViewModel;
 
+/**
+ * createRegionActivity class
+ */
+
+@SuppressWarnings({"OverlyComplexMethod", "OverlyLongMethod"})
 public class createRegionActivity extends AppCompatActivity {
 
-    private Button exit;
     private HorizontalScrollView map;
     private ImageView background;
     private RelativeLayout screen;
     private RelativeLayout container;
     private RelativeLayout shopContainer;
-    private ImageView ship;
     private RelativeLayout.LayoutParams layoutParams;
     private RelativeLayout.LayoutParams shopLayoutParams;
 
@@ -46,6 +49,9 @@ public class createRegionActivity extends AppCompatActivity {
     private Button acceptTravel;
     private Button declineTravel;
     private Button okTravel;
+
+    private RelativeLayout confirmEncounter;
+    private TextView encounterMessage;
 
     private RelativeLayout fuel;
     private TextView fuelText;
@@ -76,9 +82,7 @@ public class createRegionActivity extends AppCompatActivity {
     private RelativeLayout fiore;
     private RelativeLayout orange;
 
-    private String symbol = "\u20BD";
     private String txt;
-    private int price;
     private boolean shopping = true;
 
     private Player player;
@@ -88,8 +92,6 @@ public class createRegionActivity extends AppCompatActivity {
     private Random random;
 
     private Handler handler;
-
-    private CreatePlayerViewModel viewModel;
 
     private TextView regionText;
     private TextView creditText;
@@ -129,18 +131,20 @@ public class createRegionActivity extends AppCompatActivity {
     private Button toggleBag;
     private Button toggleMap;
 
+    @SuppressWarnings("OverlyLongMethod")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_region);
 
-        exit = findViewById(R.id.exitButton);
+        Button exit = findViewById(R.id.exitButton);
         map = findViewById(R.id.map);
         background = findViewById(R.id.mapBackground);
         screen = findViewById(R.id.screen);
         container = findViewById(R.id.container);
         shopContainer = findViewById(R.id.shopContainer);
-        ship = findViewById(R.id.shipAnimation);
+        //noinspection unused
+        ImageView ship = findViewById(R.id.shipAnimation);
 
         layoutParams = (RelativeLayout.LayoutParams) container.getLayoutParams();
         shopLayoutParams = (RelativeLayout.LayoutParams) shopContainer.getLayoutParams();
@@ -156,6 +160,10 @@ public class createRegionActivity extends AppCompatActivity {
         acceptTravel = findViewById(R.id.acceptTravel);
         declineTravel = findViewById(R.id.declineTravel);
         okTravel = findViewById(R.id.okTravel);
+
+        confirmEncounter = findViewById(R.id.encounter);
+        encounterMessage = findViewById(R.id.encounterMessage);
+        Button okEncounter = findViewById(R.id.okEncounter);
 
         fuel = findViewById(R.id.fuel);
         fuelText = findViewById(R.id.fuelText);
@@ -178,7 +186,8 @@ public class createRegionActivity extends AppCompatActivity {
         random = new Random();
         handler = new Handler();
 
-        viewModel = ViewModelProviders.of(this).get(CreatePlayerViewModel.class);
+        CreatePlayerViewModel viewModel =
+                ViewModelProviders.of(this).get(CreatePlayerViewModel.class);
 
         regionText = findViewById(R.id.regionText);
         creditText = findViewById(R.id.creditText);
@@ -232,7 +241,8 @@ public class createRegionActivity extends AppCompatActivity {
         final Region[] regions = new Region[12];
 
         for (RegionEnum region : RegionEnum.values()) {
-            regions[region.ordinal()] = new Region(region, region.getX(), region.getY(), random.nextInt(2));
+            regions[region.ordinal()] = new Region(region,
+                    random.nextInt(2));
         }
 
         player = viewModel.getAllPlayers().get(0);
@@ -254,6 +264,7 @@ public class createRegionActivity extends AppCompatActivity {
         });
 
         toggleBag.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
@@ -280,14 +291,16 @@ public class createRegionActivity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        shopLayoutParams.setMargins(0, shopLayoutParams.topMargin - 100, 0, shopLayoutParams.bottomMargin + 100);
+                        shopLayoutParams.setMargins(0, shopLayoutParams.topMargin - 100, 0,
+                                shopLayoutParams.bottomMargin + 100);
                         shopContainer.setLayoutParams(shopLayoutParams);
                         if (shopLayoutParams.topMargin != -3000) {
                             handler.postDelayed(this, 10);
                         } else {
                             shopContainer.setVisibility(View.GONE);
                             backButton.setVisibility(View.VISIBLE);
-                            RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos, oblivia, sevii, orre, almia, fiore, orange};
+                            RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh,
+                                    unova, kalos, oblivia, sevii, orre, almia, fiore, orange};
                             for (RelativeLayout region : regionBoxes) {
                                 region.setVisibility(View.VISIBLE);
                             }
@@ -309,14 +322,16 @@ public class createRegionActivity extends AppCompatActivity {
                 backButton.setVisibility(View.GONE);
                 fuel.setVisibility(View.GONE);
                 shopContainer.setVisibility(View.VISIBLE);
-                RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos, oblivia, sevii, orre, almia, fiore, orange};
+                RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova,
+                        kalos, oblivia, sevii, orre, almia, fiore, orange};
                 for (RelativeLayout region : regionBoxes) {
                     region.setVisibility(View.GONE);
                 }
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        shopLayoutParams.setMargins(0, shopLayoutParams.topMargin + 100, 0, shopLayoutParams.bottomMargin - 100);
+                        shopLayoutParams.setMargins(0, shopLayoutParams.topMargin + 100, 0,
+                                shopLayoutParams.bottomMargin - 100);
                         shopContainer.setLayoutParams(shopLayoutParams);
                         if (shopLayoutParams.topMargin != 0) {
                             handler.postDelayed(this, 10);
@@ -329,21 +344,26 @@ public class createRegionActivity extends AppCompatActivity {
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayConfirmation("Fresh Water", player.getCurrentRegion().getCity().getFreshWaterPrice(), player.getShip().getCargo(0));
+                displayConfirmation("Fresh Water",
+                        player.getCurrentRegion().getCity().getFreshWaterPrice(),
+                        player.getShip().getCargo(0));
             }
         });
 
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayConfirmation("Scarf", player.getCurrentRegion().getCity().getScarfPrice(), player.getShip().getCargo(1));
+                displayConfirmation("Scarf", player.getCurrentRegion().getCity().getScarfPrice(),
+                        player.getShip().getCargo(1));
             }
         });
 
         four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayConfirmation("Berries", player.getCurrentRegion().getCity().getBerriesPrice(), player.getShip().getCargo(2));
+                displayConfirmation("Berries",
+                        player.getCurrentRegion().getCity().getBerriesPrice(),
+                        player.getShip().getCargo(2));
             }
         });
 
@@ -351,7 +371,9 @@ public class createRegionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (player.getCurrentRegion().getCity().getTechLevel() >= 2) {
-                    displayConfirmation("Nuggets", player.getCurrentRegion().getCity().getNuggetsPrice(), player.getShip().getCargo(3));
+                    displayConfirmation("Nuggets",
+                            player.getCurrentRegion().getCity().getNuggetsPrice(),
+                            player.getShip().getCargo(3));
                 }
             }
         });
@@ -360,7 +382,9 @@ public class createRegionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (player.getCurrentRegion().getCity().getTechLevel() >= 1) {
-                    displayConfirmation("Poké Doll", player.getCurrentRegion().getCity().getPokeDollPrice(), player.getShip().getCargo(4));
+                    displayConfirmation("Poké Doll",
+                            player.getCurrentRegion().getCity().getPokeDollPrice(),
+                            player.getShip().getCargo(4));
                 }
             }
         });
@@ -369,7 +393,9 @@ public class createRegionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (player.getCurrentRegion().getCity().getTechLevel() >= 1) {
-                    displayConfirmation("Pokémon", player.getCurrentRegion().getCity().getPokemonPrice(), player.getShip().getCargo(5));
+                    displayConfirmation("Pokémon",
+                            player.getCurrentRegion().getCity().getPokemonPrice(),
+                            player.getShip().getCargo(5));
                 }
             }
         });
@@ -378,7 +404,9 @@ public class createRegionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (player.getCurrentRegion().getCity().getTechLevel() >= 1) {
-                    displayConfirmation("Potion", player.getCurrentRegion().getCity().getPotionsPrice(), player.getShip().getCargo(6));
+                    displayConfirmation("Potion",
+                            player.getCurrentRegion().getCity().getPotionsPrice(),
+                            player.getShip().getCargo(6));
                 }
             }
         });
@@ -387,7 +415,9 @@ public class createRegionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (player.getCurrentRegion().getCity().getTechLevel() >= 3) {
-                    displayConfirmation("TM", player.getCurrentRegion().getCity().getTechnicalMachinePrice(), player.getShip().getCargo(7));
+                    displayConfirmation("TM",
+                            player.getCurrentRegion().getCity().getTechnicalMachinePrice(),
+                            player.getShip().getCargo(7));
                 }
             }
         });
@@ -395,7 +425,9 @@ public class createRegionActivity extends AppCompatActivity {
         ten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayConfirmation("Big Mushroom", player.getCurrentRegion().getCity().getBigMushroomPrice(), player.getShip().getCargo(8));
+                displayConfirmation("Big Mushroom",
+                        player.getCurrentRegion().getCity().getBigMushroomPrice(),
+                        player.getShip().getCargo(8));
             }
         });
 
@@ -403,7 +435,9 @@ public class createRegionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (player.getCurrentRegion().getCity().getTechLevel() >= 4) {
-                    displayConfirmation("Poké Ball", player.getCurrentRegion().getCity().getPokeBallPrice(), player.getShip().getCargo(9));
+                    displayConfirmation("Poké Ball",
+                            player.getCurrentRegion().getCity().getPokeBallPrice(),
+                            player.getShip().getCargo(9));
                 }
             }
         });
@@ -466,7 +500,8 @@ public class createRegionActivity extends AppCompatActivity {
                             purchase(6, player.getCurrentRegion().getCity().getPotionsPrice());
                             break;
                         case "Purchase TM?":
-                            purchase(7, player.getCurrentRegion().getCity().getTechnicalMachinePrice());
+                            purchase(7,
+                                    player.getCurrentRegion().getCity().getTechnicalMachinePrice());
                             break;
                         case "Purchase Big Mushroom?":
                             purchase(8, player.getCurrentRegion().getCity().getBigMushroomPrice());
@@ -630,7 +665,8 @@ public class createRegionActivity extends AppCompatActivity {
                 selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
                 selectFX.setVolume(1f/10f,1f/10f);
                 selectFX.start();
-                RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos, oblivia, sevii, orre, almia, fiore, orange};
+                RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos,
+                        oblivia, sevii, orre, almia, fiore, orange};
                 for (RelativeLayout region : regionBoxes) {
                     region.setClickable(true);
                 }
@@ -644,7 +680,8 @@ public class createRegionActivity extends AppCompatActivity {
                 selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
                 selectFX.setVolume(1f/10f,1f/10f);
                 selectFX.start();
-                RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos, oblivia, sevii, orre, almia, fiore, orange};
+                RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova,
+                        kalos, oblivia, sevii, orre, almia, fiore, orange};
                 for (RelativeLayout region : regionBoxes) {
                     region.setClickable(true);
                 }
@@ -680,18 +717,36 @@ public class createRegionActivity extends AppCompatActivity {
                 } else if (((String) travelMessage.getText()).contains("Orange")) {
                     travel(regions, 11);
                 }
-                RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos, oblivia, sevii, orre, almia, fiore, orange};
+                RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos,
+                        oblivia, sevii, orre, almia, fiore, orange};
                 for (RelativeLayout region : regionBoxes) {
                     region.setClickable(true);
                 }
             }
         });
 
-        final String TAG = "Display Tag";
-        for (Region var: regions) {
-            Log.d(TAG, var.toString());
-        }
-        Log.d(TAG, Integer.toString(player.getCurrentRegion().getCity().getTechLevel()));
+        okEncounter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
+                selectFX.setVolume(1f/10f,1f/10f);
+                selectFX.start();
+                confirmEncounter.setVisibility(View.GONE);
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        shopLayoutParams.setMargins(0, shopLayoutParams.topMargin + 100, 0,
+                                shopLayoutParams.bottomMargin - 100);
+                        shopContainer.setLayoutParams(shopLayoutParams);
+                        if (shopLayoutParams.topMargin != 0) {
+                            handler.postDelayed(this, 10);
+                        }
+                    }
+                }, 100);
+            }
+        });
+
     }
 
     @Override
@@ -700,7 +755,7 @@ public class createRegionActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                map.smoothScrollTo(background.getWidth()/2 - screen.getWidth()/2, 0);
+                map.smoothScrollTo((background.getWidth() / 2) - (screen.getWidth() / 2), 0);
             }
         }, 500);
 
@@ -708,8 +763,10 @@ public class createRegionActivity extends AppCompatActivity {
         layoutParams.setMargins(-1300, 0, 1300, 0);
         container.setLayoutParams(layoutParams);
         container.setVisibility(View.VISIBLE);
+        confirmEncounter.setVisibility(View.GONE);
 
-        RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos, oblivia, sevii, orre, almia, fiore, orange};
+        RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos,
+                oblivia, sevii, orre, almia, fiore, orange};
         for (RelativeLayout region : regionBoxes) {
             region.setVisibility(View.GONE);
         }
@@ -730,7 +787,8 @@ public class createRegionActivity extends AppCompatActivity {
         final Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                shopLayoutParams.setMargins(0, shopLayoutParams.topMargin + 100, 0, shopLayoutParams.bottomMargin - 100);
+                shopLayoutParams.setMargins(0, shopLayoutParams.topMargin + 100, 0,
+                        shopLayoutParams.bottomMargin - 100);
                 shopContainer.setLayoutParams(shopLayoutParams);
                 if (shopLayoutParams.topMargin != 0) {
                     handler.postDelayed(this, 10);
@@ -741,7 +799,8 @@ public class createRegionActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                layoutParams.setMargins(layoutParams.leftMargin + 50, 0, layoutParams.rightMargin - 50, 0);
+                layoutParams.setMargins(layoutParams.leftMargin + 50, 0,
+                        layoutParams.rightMargin - 50, 0);
                 container.setLayoutParams(layoutParams);
                 if (layoutParams.rightMargin != -1500) {
                     handler.postDelayed(this, 10);
@@ -758,8 +817,10 @@ public class createRegionActivity extends AppCompatActivity {
     private void configure() {
         toggleBag.setClickable(true);
         toggleMap.setClickable(true);
-        TextView[] priceText = {waterPrice, scarfPrice, berriesPrice, nuggetsPrice, pokedollPrice, pokemonPrice, potionPrice, tmPrice, mushroomPrice, pokeballPrice};
+        TextView[] priceText = {waterPrice, scarfPrice, berriesPrice, nuggetsPrice, pokedollPrice,
+                pokemonPrice, potionPrice, tmPrice, mushroomPrice, pokeballPrice};
         regionText.setText(player.getCurrentRegion().getRegion().getName());
+        String symbol = "\u20BD";
         txt = symbol + player.getPokeDollars();
         creditText.setText(txt);
         cityText.setText(player.getCurrentRegion().getCity().getCityName());
@@ -774,101 +835,101 @@ public class createRegionActivity extends AppCompatActivity {
             price.setTextColor(Color.parseColor("#000000"));
         }
 
-        price = player.getCurrentRegion().getCity().getFreshWaterPrice();
-        txt = (price > 0) ? symbol + price : "N/A";
+        int price1 = player.getCurrentRegion().getCity().getFreshWaterPrice();
+        txt = (price1 > 0) ? (symbol + price1) : "N/A";
         waterPrice.setText(txt);
         waterPriceShadow.setText(txt);
-        if (txt.equals("N/A")) {
+        if ("N/A".equals(txt)) {
             two.setVisibility(View.GONE);
         } else {
             two.setVisibility(View.VISIBLE);
         }
 
-        price = player.getCurrentRegion().getCity().getScarfPrice();
-        txt = (price > 0) ? symbol + price : "N/A";
+        price1 = player.getCurrentRegion().getCity().getScarfPrice();
+        txt = (price1 > 0) ? (symbol + price1) : "N/A";
         scarfPrice.setText(txt);
         scarfPriceShadow.setText(txt);
-        if (txt.equals("N/A")) {
+        if ("N/A".equals(txt)) {
             three.setVisibility(View.GONE);
         } else {
             three.setVisibility(View.VISIBLE);
         }
 
-        price = player.getCurrentRegion().getCity().getBerriesPrice();
-        txt = (price > 0) ? symbol + price : "N/A";
+        price1 = player.getCurrentRegion().getCity().getBerriesPrice();
+        txt = (price1 > 0) ? (symbol + price1) : "N/A";
         berriesPrice.setText(txt);
         berriesPriceShadow.setText(txt);
-        if (txt.equals("N/A")) {
+        if ("N/A".equals(txt)) {
             four.setVisibility(View.GONE);
         } else {
             four.setVisibility(View.VISIBLE);
         }
 
-        price = player.getCurrentRegion().getCity().getNuggetsPrice();
-        txt = (price > 0) ? symbol + price : "N/A";
+        price1 = player.getCurrentRegion().getCity().getNuggetsPrice();
+        txt = (price1 > 0) ? (symbol + price1) : "N/A";
         nuggetsPrice.setText(txt);
         nuggetsPriceShadow.setText(txt);
-        if (txt.equals("N/A")) {
+        if ("N/A".equals(txt)) {
             five.setVisibility(View.GONE);
         } else {
             five.setVisibility(View.VISIBLE);
         }
 
-        price = player.getCurrentRegion().getCity().getPokeDollPrice();
-        txt = (price > 0) ? symbol + price : "N/A";
+        price1 = player.getCurrentRegion().getCity().getPokeDollPrice();
+        txt = (price1 > 0) ? (symbol + price1) : "N/A";
         pokedollPrice.setText(txt);
         pokedollPriceShadow.setText(txt);
-        if (txt.equals("N/A")) {
+        if ("N/A".equals(txt)) {
             six.setVisibility(View.GONE);
         } else {
             six.setVisibility(View.VISIBLE);
         }
 
-        price = player.getCurrentRegion().getCity().getPokemonPrice();
-        txt = (price > 0) ? symbol + price : "N/A";
+        price1 = player.getCurrentRegion().getCity().getPokemonPrice();
+        txt = (price1 > 0) ? (symbol + price1) : "N/A";
         pokemonPrice.setText(txt);
         pokemonPriceShadow.setText(txt);
-        if (txt.equals("N/A")) {
+        if ("N/A".equals(txt)) {
             seven.setVisibility(View.GONE);
         } else {
             seven.setVisibility(View.VISIBLE);
         }
 
-        price = player.getCurrentRegion().getCity().getPotionsPrice();
-        txt = (price > 0) ? symbol + price : "N/A";
+        price1 = player.getCurrentRegion().getCity().getPotionsPrice();
+        txt = (price1 > 0) ? (symbol + price1) : "N/A";
         potionPrice.setText(txt);
         potionPriceShadow.setText(txt);
-        if (txt.equals("N/A")) {
+        if ("N/A".equals(txt)) {
             eight.setVisibility(View.GONE);
         } else {
             eight.setVisibility(View.VISIBLE);
         }
 
-        price = player.getCurrentRegion().getCity().getTechnicalMachinePrice();
-        txt = (price > 0) ? symbol + price : "N/A";
+        price1 = player.getCurrentRegion().getCity().getTechnicalMachinePrice();
+        txt = (price1 > 0) ? (symbol + price1) : "N/A";
         tmPrice.setText(txt);
         tmPriceShadow.setText(txt);
-        if (txt.equals("N/A")) {
+        if ("N/A".equals(txt)) {
             nine.setVisibility(View.GONE);
         } else {
             nine.setVisibility(View.VISIBLE);
         }
 
-        price = player.getCurrentRegion().getCity().getBigMushroomPrice();
-        txt = (price > 0) ? symbol + price : "N/A";
+        price1 = player.getCurrentRegion().getCity().getBigMushroomPrice();
+        txt = (price1 > 0) ? (symbol + price1) : "N/A";
         mushroomPrice.setText(txt);
         mushroomPriceShadow.setText(txt);
-        if (txt.equals("N/A")) {
+        if ("N/A".equals(txt)) {
             ten.setVisibility(View.GONE);
         } else {
             ten.setVisibility(View.VISIBLE);
         }
 
-        price = player.getCurrentRegion().getCity().getPokeBallPrice();
-        txt = (price > 0) ? symbol + price : "N/A";
+        price1 = player.getCurrentRegion().getCity().getPokeBallPrice();
+        txt = (price1 > 0) ? (symbol + price1) : "N/A";
         pokeballPrice.setText(txt);
         pokeballPriceShadow.setText(txt);
-        if (txt.equals("N/A")) {
+        if ("N/A".equals(txt)) {
             eleven.setVisibility(View.GONE);
         } else {
             eleven.setVisibility(View.VISIBLE);
@@ -897,20 +958,29 @@ public class createRegionActivity extends AppCompatActivity {
                 pokedollPrice.setTextColor(Color.parseColor("#CF7766"));
                 pokemonPrice.setTextColor(Color.parseColor("#CF7766"));
                 potionPrice.setTextColor(Color.parseColor("#CF7766"));
+                //noinspection fallthrough
             case 1:
                 nuggetsPrice.setTextColor(Color.parseColor("#CF7766"));
+                //noinspection fallthrough
             case 2:
                 tmPrice.setTextColor(Color.parseColor("#CF7766"));
+                //noinspection fallthrough
             case 3:
                 pokeballPrice.setTextColor(Color.parseColor("#CF7766"));
+                //noinspection fallthrough
             default:
                 break;
         }
-        TextView[] priceText = {waterPrice, scarfPrice, berriesPrice, nuggetsPrice, pokedollPrice, pokemonPrice, potionPrice, tmPrice, mushroomPrice, pokeballPrice};
-        TextView[] shadowText = {waterPriceShadow, scarfPriceShadow, berriesPriceShadow, nuggetsPriceShadow, pokedollPriceShadow, pokemonPriceShadow, potionPriceShadow, tmPriceShadow, mushroomPriceShadow, pokeballPriceShadow};
+        TextView[] priceText = {waterPrice, scarfPrice, berriesPrice, nuggetsPrice, pokedollPrice,
+                pokemonPrice, potionPrice, tmPrice, mushroomPrice, pokeballPrice};
+        TextView[] shadowText = {waterPriceShadow, scarfPriceShadow, berriesPriceShadow,
+                nuggetsPriceShadow, pokedollPriceShadow, pokemonPriceShadow, potionPriceShadow,
+                tmPriceShadow, mushroomPriceShadow, pokeballPriceShadow};
         for (int i = 0; i < 10; i++) {
-            priceText[i].setText(Integer.toString(player.getShip().getCargo(i)));
-            shadowText[i].setText(Integer.toString(player.getShip().getCargo(i)));
+            txt = Integer.toString(player.getShip().getCargo(i));
+            priceText[i].setText(txt);
+            txt = Integer.toString(player.getShip().getCargo(i));
+            shadowText[i].setText(txt);
         }
     }
 
@@ -926,8 +996,10 @@ public class createRegionActivity extends AppCompatActivity {
             stripe.setClickable(false);
         }
         if (shopping) {
-            if (price > player.getPokeDollars() || player.getShip().getNumberOfCargo() == player.getShip().getCargoBay()) {
-                txt = (price > player.getPokeDollars()) ? "Insufficient Funds!" : "Insufficient Space!";
+            if ((price > player.getPokeDollars()) || (player.getShip().getNumberOfCargo()
+                    == player.getShip().getCargoBay())) {
+                txt = (price > player.getPokeDollars()) ? "Insufficient Funds!"
+                        : "Insufficient Space!";
                 okButton.setVisibility(View.VISIBLE);
                 yesButton.setVisibility(View.GONE);
                 noButton.setVisibility(View.GONE);
@@ -968,7 +1040,8 @@ public class createRegionActivity extends AppCompatActivity {
     private void sell(int index, int price) {
         selectFX = MediaPlayer.create(getApplicationContext(), R.raw.purchase);
         selectFX.start();
-        player.setPokeDollars(player.getPokeDollars() + price);
+        int price1 = (price < 0) ? 100 : price;
+        player.setPokeDollars(player.getPokeDollars() + price1);
         player.getShip().setCargo(index, player.getShip().getCargo(index) - 1);
         player.getShip().setNumberOfCargo(player.getShip().getNumberOfCargo() - 1);
         toggleBag();
@@ -978,7 +1051,8 @@ public class createRegionActivity extends AppCompatActivity {
         selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
         selectFX.setVolume(1f/10f,1f/10f);
         selectFX.start();
-        RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos, oblivia, sevii, orre, almia, fiore, orange};
+        RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos, oblivia,
+                sevii, orre, almia, fiore, orange};
         for (RelativeLayout region : regionBoxes) {
             region.setClickable(false);
         }
@@ -1023,34 +1097,75 @@ public class createRegionActivity extends AppCompatActivity {
         layoutParams.setMargins(-1300, 0, 1300, 0);
         container.setLayoutParams(layoutParams);
         container.setVisibility(View.VISIBLE);
-        RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos, oblivia, sevii, orre, almia, fiore, orange};
+        RelativeLayout[] regionBoxes = {kanto, johto, hoenn, sinnoh, unova, kalos, oblivia, sevii,
+                orre, almia, fiore, orange};
         for (RelativeLayout region : regionBoxes) {
             region.setVisibility(View.GONE);
         }
-        final Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                shopLayoutParams.setMargins(0, shopLayoutParams.topMargin + 100, 0, shopLayoutParams.bottomMargin - 100);
-                shopContainer.setLayoutParams(shopLayoutParams);
-                if (shopLayoutParams.topMargin != 0) {
-                    handler.postDelayed(this, 10);
+        if ((random.nextInt() % 3) == 1) {
+            final Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    shopLayoutParams.setMargins(0, shopLayoutParams.topMargin + 100, 0,
+                            shopLayoutParams.bottomMargin - 100);
+                    shopContainer.setLayoutParams(shopLayoutParams);
+                    if (shopLayoutParams.topMargin != 0) {
+                        handler.postDelayed(this, 10);
+                    }
                 }
-            }
-        };
+            };
 
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                layoutParams.setMargins(layoutParams.leftMargin + 50, 0, layoutParams.rightMargin - 50, 0);
-                container.setLayoutParams(layoutParams);
-                if (layoutParams.rightMargin != -1500) {
-                    handler.postDelayed(this, 10);
-                } else {
-                    container.setVisibility(View.GONE);
-                    handler.postDelayed(runnable, 10);
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    layoutParams.setMargins(layoutParams.leftMargin + 50, 0,
+                            layoutParams.rightMargin - 50, 0);
+                    container.setLayoutParams(layoutParams);
+                    if (layoutParams.rightMargin != -1500) {
+                        handler.postDelayed(this, 10);
+                    } else {
+                        container.setVisibility(View.GONE);
+                        handler.postDelayed(runnable, 10);
+                    }
                 }
+            }, 100);
+        } else {
+            int damage = 0;
+            switch (player.getDifficulty()) {
+                case "Easy":
+                    damage = 2;
+                    break;
+                case "Normal":
+                    damage = 3;
+                    break;
+                case "Hard":
+                    damage = 4;
+                    break;
+                case "Impossible":
+                    damage = 5;
+                    break;
+                default:
+                    break;
             }
-        }, 100);
+            player.getShip().setHullStrength(player.getShip().getHullStrength() - damage);
+            txt = "A trainer attacked you! Your health is now " + player.getShip().getHullStrength()
+                    + "!";
+            encounterMessage.setText(txt);
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    layoutParams.setMargins(layoutParams.leftMargin + 50, 0,
+                            layoutParams.rightMargin - 50, 0);
+                    container.setLayoutParams(layoutParams);
+                    if (layoutParams.rightMargin != -1500) {
+                        handler.postDelayed(this, 10);
+                    } else {
+                        container.setVisibility(View.GONE);
+                        confirmEncounter.setVisibility(View.VISIBLE);
+                    }
+                }
+            }, 100);
+        }
     }
 
 }

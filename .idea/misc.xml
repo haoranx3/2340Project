@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="com.example.a2340project.entity.ShipEnum Ship" />
+      <entry_point TYPE="field" FQNAME="com.example.a2340project.views.createPlayerActivity viewModel" />
+    </entry_points>
+    <pattern value="com.example.a2340project.ExampleUnitTest" method="addition_isCorrect" />
+    <pattern value="com.example.a2340project.model.Interactor" method="addPlayer" />
+    <pattern value="com.example.a2340project.entity.Player" method="buy" />
+    <pattern value="com.example.a2340project.entity.City" />
+    <pattern value="com.example.a2340project.views.createPlayerActivity" />
+    <pattern value="com.example.a2340project.viewmodels.CreatePlayerViewModel" />
+    <pattern value="com.example.a2340project.views.createRegionActivity" />
+    <pattern value="com.example.a2340project.views.displayPlayerActivity" />
+    <pattern value="com.example.a2340project.ExampleInstrumentedTest" />
+    <pattern value="com.example.a2340project.ExampleUnitTest" />
+    <pattern value="com.example.a2340project.model.Interactor" method="getAllPlayers" />
+    <pattern value="com.example.a2340project.entity.Ship" method="getCrew" />
+    <pattern value="com.example.a2340project.entity.Ship" method="getFuelCost" />
+    <pattern value="com.example.a2340project.entity.Ship" method="getGadgetSlots" />
+    <pattern value="com.example.a2340project.entity.City" method="getResources" />
+    <pattern value="com.example.a2340project.entity.Ship" method="getShieldSlots" />
+    <pattern value="com.example.a2340project.entity.Ship" method="getWeaponSlots" />
+    <pattern value="com.example.a2340project.entity.Region" method="getX" />
+    <pattern value="com.example.a2340project.entity.Region" method="getY" />
+    <pattern value="com.example.a2340project.views.MainActivity" />
+    <pattern value="com.example.a2340project.views.selectDifficultyActivity" />
+    <pattern value="com.example.a2340project.model.Interactor" />
+    <pattern value="com.example.a2340project.views.createRegionActivity" method="onCreate" />
+    <pattern value="com.example.a2340project.entity.Player" />
+    <pattern value="com.example.a2340project.entity.Region" method="randomizeCity" />
+    <pattern value="com.example.a2340project.entity.Region" />
+    <pattern value="com.example.a2340project.entity.Player" method="sell" />
+    <pattern value="com.example.a2340project.entity.City" method="setBerriesPrice" />
+    <pattern value="com.example.a2340project.entity.City" method="setBigMushroomPrice" />
+    <pattern value="com.example.a2340project.entity.City" method="setFreshWaterPrice" />
+    <pattern value="com.example.a2340project.entity.City" method="setNuggetsPrice" />
+    <pattern value="com.example.a2340project.entity.City" method="setPokeBallPrice" />
+    <pattern value="com.example.a2340project.entity.City" method="setPokeDollPrice" />
+    <pattern value="com.example.a2340project.entity.City" method="setPokemonPrice" />
+    <pattern value="com.example.a2340project.entity.City" method="setPotionsPrice" />
+    <pattern value="com.example.a2340project.entity.City" method="setScarfPrice" />
+    <pattern value="com.example.a2340project.entity.Player" method="setShip" />
+    <pattern value="com.example.a2340project.entity.City" method="setTechnicalMachinePrice" />
+    <pattern value="com.example.a2340project.entity.Ship" />
+    <pattern value="com.example.a2340project.entity.Ship" method="Ship" />
+    <pattern value="com.example.a2340project.entity.ShipEnum" />
+    <pattern value="com.example.a2340project.viewmodels.CreatePlayerViewModel" method="updatePlayer" />
+    <pattern value="com.example.a2340project.model.Interactor" method="updatePlayer" />
+    <pattern value="com.example.a2340project.ExampleInstrumentedTest" method="useAppContext" />
+    <pattern value="com.example.a2340project.entity.City" method="City" />
+    <pattern value="com.example.a2340project.viewmodels.CreatePlayerViewModel" method="CreatePlayerViewModel" />
+    <pattern value="com.example.a2340project.model.Interactor" method="Interactor" />
+    <pattern value="com.example.a2340project.views.createPlayerActivity" method="onCreate" />
+    <pattern value="com.example.a2340project.views.displayPlayerActivity" method="onCreate" />
+    <pattern value="com.example.a2340project.views.MainActivity" method="onCreate" />
+    <pattern value="com.example.a2340project.views.selectDifficultyActivity" method="onCreate" />
+    <pattern value="com.example.a2340project.views.createRegionActivity" method="onStart" />
+    <pattern value="com.example.a2340project.views.displayPlayerActivity" method="onStart" />
+    <pattern value="com.example.a2340project.views.selectDifficultyActivity" method="onStart" />
+    <pattern value="com.example.a2340project.entity.Player" method="Player" />
+    <pattern value="com.example.a2340project.model.PlayerInteractor" />
+    <pattern value="com.example.a2340project.entity.Region" method="Region" />
+    <pattern value="com.example.a2340project.entity.ShipEnum" method="ShipEnum" />
+    <pattern value="com.example.a2340project.model.PlayerInteractor" method="updatePlayer" />
+    <pattern value="com.example.a2340project.entity.ShipEnum" method="getName" />
+    <pattern value="com.example.a2340project.entity.Player" method="getEngineerPoints" />
+    <pattern value="com.example.a2340project.entity.Player" method="getSailorPoints" />
+    <pattern value="com.example.a2340project.entity.Player" method="getTraderPoints" />
+    <pattern value="com.example.a2340project.entity.Player" method="getTrainerPoints" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

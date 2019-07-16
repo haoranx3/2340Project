@@ -1,21 +1,36 @@
 package com.example.a2340project.entity;
 
+/**
+ * Player class
+ */
 public class Player {
     private String username;
-    private String difficulty;
-    private int sailorPoints;
-    private int trainerPoints;
-    private int traderPoints;
-    private int engineerPoints;
+    private final String difficulty;
+    private final int sailorPoints;
+    private final int trainerPoints;
+    private final int traderPoints;
+    private final int engineerPoints;
 
     private int pokeDollars;
     private Ship ship;
 
     private Region currentRegion;
 
-    /** a globally unique number for this object */
+    /**
+     * a globally unique number for this object
+     */
     private int id;
 
+    /**
+     * makes player
+     * @param name name
+     * @param diff diff
+     * @param sailor points
+     * @param trainer points
+     * @param trader points
+     * @param engineer points
+     */
+    @SuppressWarnings("ConstructorWithTooManyParameters")
     public Player(String name, String diff, int sailor, int trainer, int trader, int engineer) {
         username = name;
         difficulty = diff;
@@ -27,134 +42,140 @@ public class Player {
         ship = new Ship(ShipEnum.SSAnne);
     }
 
+    /**
+     * gets name
+     *
+     * @return name
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * gets difficulty
+     *
+     * @return diff
+     */
     public String getDifficulty() {
         return difficulty;
     }
 
+    /**
+     * gets money
+     *
+     * @return money
+     */
     public int getPokeDollars() {
         return pokeDollars;
     }
 
+    /**
+     * gets ship
+     *
+     * @return ship
+     */
     public Ship getShip() {
         return ship;
     }
+
+    /**
+     * gets points
+     *
+     * @return points
+     */
 
     public int getSailorPoints() {
         return sailorPoints;
     }
 
+    /**
+     * gets points
+     *
+     * @return points
+     */
     public int getTrainerPoints() {
         return trainerPoints;
     }
 
+    /**
+     * gets points
+     *
+     * @return points
+     */
     public int getTraderPoints() {
         return traderPoints;
     }
 
+    /**
+     * gets points
+     *
+     * @return points
+     */
     public int getEngineerPoints() {
         return engineerPoints;
     }
 
+    /**
+     * gets id
+     *
+     * @return id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * gets region
+     *
+     * @return region
+     */
     public Region getCurrentRegion() {
         return currentRegion;
     }
 
+    /**
+     * sets name
+     *
+     * @param username name
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * sets dollar
+     *
+     * @param pokeDollars dollar
+     */
     public void setPokeDollars(int pokeDollars) {
         this.pokeDollars = pokeDollars;
     }
 
+    /**
+     * sets ship
+     *
+     * @param ship ship
+     */
     public void setShip(Ship ship) {
         this.ship = ship;
     }
 
+    /**
+     * sets id
+     *
+     * @param id id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * sets region
+     *
+     * @param region region
+     */
     public void setCurrentRegion(Region region) {
         currentRegion = region;
     }
-
-    public void sell(int indexForItem, Ship ship) {
-        if (ship.getCargo(indexForItem) > 0) {
-            ship.setCargo(indexForItem, ship.getCargo(indexForItem) - 1);
-            if (indexForItem == 0) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getFreshWaterPrice();
-            } else if (indexForItem == 1) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getScarfPrice();
-            } else if (indexForItem == 2) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getBerriesPrice();
-            } else if (indexForItem == 3) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getNuggetsPrice();
-            } else if (indexForItem == 4) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getPokeDollPrice();
-            } else if (indexForItem == 5) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getPokemonPrice();
-            } else if (indexForItem == 6) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getPotionsPrice();
-            } else if (indexForItem == 7) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getTechnicalMachinePrice();
-            } else if (indexForItem == 8) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getBigMushroomPrice();
-            } else {
-                pokeDollars = pokeDollars + currentRegion.getCity().getPokeBallPrice();
-            }
-            ship.setNumberOfCargo(ship.getNumberOfCargo() - 1);
-        } else {
-            throw new RuntimeException("You can not sell something you dont have");
-        }
-    }
-
-    public void buy(int indexForItem, Ship ship) {
-        if (ship.getNumberOfCargo() == ship.getCargoBay()) {
-            throw new RuntimeException("Your bag is full, can not buy more stuff");
-        } else if (pokeDollars >= (indexForItem + 1)) {
-            if (indexForItem == 0) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getFreshWaterPrice();
-            } else if (indexForItem == 1) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getScarfPrice();
-            } else if (indexForItem == 2) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getBerriesPrice();
-            } else if (indexForItem == 3) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getNuggetsPrice();
-            } else if (indexForItem == 4) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getPokeDollPrice();
-            } else if (indexForItem == 5) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getPokemonPrice();
-            } else if (indexForItem == 6) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getPotionsPrice();
-            } else if (indexForItem == 7) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getTechnicalMachinePrice();
-            } else if (indexForItem == 8) {
-                pokeDollars = pokeDollars + currentRegion.getCity().getBigMushroomPrice();
-            } else {
-                pokeDollars = pokeDollars + currentRegion.getCity().getPokeBallPrice();
-            }
-            ship.setCargo(indexForItem, ship.getCargo(indexForItem) + 1);
-            ship.setNumberOfCargo(ship.getNumberOfCargo() + 1);
-        } else {
-            throw new RuntimeException("You dont have enough money");
-        }
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Player: %s, game difficulties: %s, pilot skills: %d, trader skills: %d, fighter skills: %d, " +
-                "engineering skills: %d ID: %d%n", username, difficulty, sailorPoints, trainerPoints, traderPoints, engineerPoints, id);
-    }
-
-
 
 }

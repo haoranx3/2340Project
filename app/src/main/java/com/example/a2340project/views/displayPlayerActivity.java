@@ -2,11 +2,11 @@ package com.example.a2340project.views;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,23 +16,22 @@ import com.example.a2340project.R;
 import com.example.a2340project.entity.Player;
 import com.example.a2340project.viewmodels.CreatePlayerViewModel;
 
+/**
+ * displayerPlayerActivity class
+ */
+
 public class displayPlayerActivity extends AppCompatActivity {
 
     private CreatePlayerViewModel viewModel;
 
     private ImageView sprite;
-    private AnimationDrawable spriteAnimation;
-    private TextView stats;
-    private TextView name;
-    private Button yes;
-    private Button no;
 
-    String username;
-    int sailorPoints;
-    int trainerPoints;
-    int traderPoints;
-    int engineerPoints;
-    String diff;
+    private String username;
+    private int sailorPoints;
+    private int trainerPoints;
+    private int traderPoints;
+    private int engineerPoints;
+    private String diff;
 
     private Player player;
 
@@ -45,10 +44,10 @@ public class displayPlayerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_player);
 
         sprite = findViewById(R.id.spriteImage);
-        stats = findViewById(R.id.statsBox);
-        name = findViewById(R.id.confirmText);
-        yes = findViewById(R.id.yesButton);
-        no = findViewById(R.id.noButton);
+        TextView stats = findViewById(R.id.statsBox);
+        TextView name = findViewById(R.id.confirmText);
+        Button yes = findViewById(R.id.yesButton);
+        Button no = findViewById(R.id.noButton);
 
         viewModel = ViewModelProviders.of(this).get(CreatePlayerViewModel.class);
 
@@ -85,15 +84,11 @@ public class displayPlayerActivity extends AppCompatActivity {
                 selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
                 selectFX.setVolume(1f/10f,1f/10f);
                 selectFX.start();
-                player = new Player(username, diff, sailorPoints, trainerPoints, traderPoints, engineerPoints);
+                player = new Player(username, diff, sailorPoints, trainerPoints, traderPoints,
+                        engineerPoints);
                 viewModel.addPlayer(player);
-                Log.d("player added", "Player's name: " + player.getUsername() + " sailor points: " +
-                        player.getSailorPoints() + " trainer points: " + player.getTrainerPoints() + " trader points: "
-                        + player.getTraderPoints() +
-                        " engineer points: "
-                        + player.getEngineerPoints() + " credits: " + player.getPokeDollars() + " ship: "
-                        + player.getShip().getName());
-                Intent createRegionIntent = new Intent(getApplicationContext(), createRegionActivity.class);
+                Intent createRegionIntent = new Intent(getApplicationContext(),
+                        createRegionActivity.class);
                 startActivity(createRegionIntent);
             }
         });
@@ -104,7 +99,7 @@ public class displayPlayerActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         sprite.setBackgroundResource(R.drawable.sprite_animation);
-        spriteAnimation = (AnimationDrawable) sprite.getBackground();
+        Animatable spriteAnimation = (AnimationDrawable) sprite.getBackground();
         spriteAnimation.start();
     }
 
