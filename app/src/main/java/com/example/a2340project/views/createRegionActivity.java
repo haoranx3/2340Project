@@ -248,7 +248,7 @@ public class createRegionActivity extends AppCompatActivity {
         if (viewModel.getAllPlayers().size() > 0) {
             player = viewModel.getAllPlayers().get(0);
         } else player = new Player("test", "Easy", 1, 1, 1, 1);
-        player.setCurrentRegion(regions[random.nextInt(13)]);
+        player.setCurrentRegion(regions[random.nextInt(12)]);
 
 
 
