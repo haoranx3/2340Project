@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.a2340project.R;
 
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private MediaPlayer bgm;
     private MediaPlayer selectFX;
+    private TextView olduser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button playButton = findViewById(R.id.playButton);
+        olduser = findViewById(R.id.oldplayer);
 
         bgm = MediaPlayer.create(this, R.raw.title);
         bgm.setLooping(true);
@@ -42,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
                 bgm.release();
                 selectFX.start();
 
+            }
+        });
+
+        olduser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent loginIntent = new Intent(getApplicationContext(), login.class);
+                startActivity(loginIntent);
             }
         });
     }

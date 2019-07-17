@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.a2340project.R;
 import com.example.a2340project.entity.Player;
+import com.example.a2340project.model.DatabaseHelper;
 import com.example.a2340project.viewmodels.CreatePlayerViewModel;
 
 /**
@@ -37,6 +38,7 @@ public class displayPlayerActivity extends AppCompatActivity {
 
     private MediaPlayer selectFX;
 
+    DatabaseHelper helper = new DatabaseHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,14 +83,19 @@ public class displayPlayerActivity extends AppCompatActivity {
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int count = helper.getProfilesCount();
                 selectFX = MediaPlayer.create(getApplicationContext(), R.raw.select);
                 selectFX.setVolume(1f/10f,1f/10f);
                 selectFX.start();
                 player = new Player(username, diff, sailorPoints, trainerPoints, traderPoints,
-                        engineerPoints);
+                        engineerPoints, count +1);
                 viewModel.addPlayer(player);
-                Intent createRegionIntent = new Intent(getApplicationContext(),
-                        createRegionActivity.class);
+
+                int[] arr = new int[0];
+                helper.insertPlayer(player);
+                Intent createRegionIntent = new Intent(getApplicationContext(), createRegionActivity.class);
+                createRegionIntent.putExtra("array", arr);
+                createRegionIntent.putExtra("name", username);
                 startActivity(createRegionIntent);
             }
         });
