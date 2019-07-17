@@ -31,7 +31,7 @@ public class Player {
      * @param engineer points
      */
     @SuppressWarnings("ConstructorWithTooManyParameters")
-    public Player(String name, String diff, int sailor, int trainer, int trader, int engineer) {
+    public Player(String name, String diff, int sailor, int trainer, int trader, int engineer, int id) {
         username = name;
         difficulty = diff;
         sailorPoints = sailor;
@@ -39,6 +39,7 @@ public class Player {
         traderPoints = trader;
         engineerPoints = engineer;
         pokeDollars = 1000;
+        this.id = id;
         ship = new Ship(ShipEnum.SSAnne);
     }
 

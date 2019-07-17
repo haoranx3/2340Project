@@ -30,5 +30,6 @@
     <string name="sprite">sprite</string>
     <string name="pts">16pts</string>
     <string name="zeroPoints">0</string>
+    <string name="olduser">Already has a username?</string>
 </resources>
 

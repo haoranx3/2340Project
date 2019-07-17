@@ -37,7 +37,6 @@ class Repository {
      * @param player the new player
      */
     public void addPlayer(Player player) {
-        player.setId(Repository.getNextUniqueID());
         allPlayers.add(player);
     }
 
