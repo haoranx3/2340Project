@@ -269,7 +269,7 @@ public class createRegionActivity extends AppCompatActivity {
             player.getShip().setCargo(9, arrInfo[13]);
             player.setPokeDollars(arrInfo[14]);
         }
-        player.setCurrentRegion(regions[random.nextInt(13)]);
+        player.setCurrentRegion(regions[random.nextInt(12)]);
 
         configure();
 
