@@ -28,7 +28,6 @@ import com.example.a2340project.viewmodels.CreatePlayerViewModel;
 
 public class createRegionActivity extends AppCompatActivity {
 
-    int[] arrInfo = getIntent().getIntArrayExtra("array");
 
     private Button exit;
     private HorizontalScrollView map;
@@ -140,6 +139,10 @@ public class createRegionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_region);
 
+        Bundle extras = getIntent().getExtras();
+        int[] arrInfo = extras.getIntArray("array");
+        String name = getIntent().getStringExtra("name");
+
         exit = findViewById(R.id.exitButton);
         map = findViewById(R.id.map);
         background = findViewById(R.id.mapBackground);
@@ -241,7 +244,23 @@ public class createRegionActivity extends AppCompatActivity {
             regions[region.ordinal()] = new Region(region, region.getX(), region.getY(), random.nextInt(2));
         }
 
-        player = viewModel.getAllPlayers().get(0);
+        if(arrInfo.length == 0) {
+            player = viewModel.getAllPlayers().get(0);
+        } else {
+            player = new Player(name, "Easy", arrInfo[0], arrInfo[1],arrInfo[2],arrInfo[3],
+                    arrInfo[15]);
+            player.getShip().setCargo(0, arrInfo[4]);
+            player.getShip().setCargo(1, arrInfo[5]);
+            player.getShip().setCargo(2, arrInfo[6]);
+            player.getShip().setCargo(3, arrInfo[7]);
+            player.getShip().setCargo(4, arrInfo[8]);
+            player.getShip().setCargo(5, arrInfo[9]);
+            player.getShip().setCargo(6, arrInfo[10]);
+            player.getShip().setCargo(7, arrInfo[11]);
+            player.getShip().setCargo(8, arrInfo[12]);
+            player.getShip().setCargo(9, arrInfo[13]);
+            player.setPokeDollars(arrInfo[14]);
+        }
         player.setCurrentRegion(regions[random.nextInt(13)]);
 
         configure();

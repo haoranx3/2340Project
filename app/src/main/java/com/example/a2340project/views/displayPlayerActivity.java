@@ -100,9 +100,11 @@ public class displayPlayerActivity extends AppCompatActivity {
                         + player.getEngineerPoints() + " credits: " + player.getPokeDollars() + " ship: "
                         + player.getShip().getName());
 
+                int[] arr = new int[0];
                 helper.insertPlayer(player);
-
                 Intent createRegionIntent = new Intent(getApplicationContext(), createRegionActivity.class);
+                createRegionIntent.putExtra("array", arr);
+                createRegionIntent.putExtra("name", username);
                 startActivity(createRegionIntent);
             }
         });

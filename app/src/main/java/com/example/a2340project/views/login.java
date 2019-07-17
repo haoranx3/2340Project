@@ -30,6 +30,7 @@ public class login extends AppCompatActivity {
                 int[] info = helper.searchInfo(usernameStr);
                 Intent loginIntent = new Intent(getApplicationContext(), createRegionActivity.class);
                 loginIntent.putExtra("array", info);
+                loginIntent.putExtra("name", usernameStr);
                 startActivity(loginIntent);
             }
         });

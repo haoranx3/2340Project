@@ -101,9 +101,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public int[] searchInfo(String username) {
         db = this.getReadableDatabase();
-        String query = "select username, sailor points, trainerpoints, traderpoints, " +
-                "engineer points, freshwater, scarf, berries, nuggets, pokedoll," +
-                "pokemon, potion, tm, bigmushroom, pokeball, pokedollars from " + TABLE_NAME;
+        String query = "select username, sailorpoints, trainerpoints, traderpoints, " +
+                "engineerpoints, freshwater, scarf, berries, nuggets, pokedoll," +
+                "pokemon, potion, tm, bigmushroom, pokeball, pokedollars, id from " + TABLE_NAME;
         Cursor cursor = db.rawQuery(query, null);
         int sailor;
         int trainer;
@@ -121,7 +121,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int pokeball;
         int pokedollars;
         String uname;
-        int[] arr = new int[15];
+        int id;
+        int[] arr = new int[16];
         if(cursor.moveToFirst()) {
             do{
                 uname = cursor.getString(cursor.getColumnIndex("username"));
@@ -156,6 +157,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     arr[13] = pokeball;
                     pokedollars = cursor.getInt(cursor.getColumnIndex("pokedollars"));
                     arr[14] = pokedollars;
+                    id = cursor.getInt(cursor.getColumnIndex("id"));
+                    arr[15] = id;
                 }
             } while(cursor.moveToNext());
         }
