@@ -4,6 +4,7 @@
     <entry_points version="2.0">
       <entry_point TYPE="field" FQNAME="com.example.a2340project.entity.ShipEnum Ship" />
       <entry_point TYPE="field" FQNAME="com.example.a2340project.views.createPlayerActivity viewModel" />
+      <entry_point TYPE="field" FQNAME="com.example.a2340project.HaoranTest createRegionActivityActivityTestRule" />
     </entry_points>
     <pattern value="com.example.a2340project.ExampleUnitTest" method="addition_isCorrect" />
     <pattern value="com.example.a2340project.model.Interactor" method="addPlayer" />
@@ -69,6 +70,21 @@
     <pattern value="com.example.a2340project.entity.Player" method="getSailorPoints" />
     <pattern value="com.example.a2340project.entity.Player" method="getTraderPoints" />
     <pattern value="com.example.a2340project.entity.Player" method="getTrainerPoints" />
+    <pattern value="com.example.a2340project.AnthonyTest" />
+    <pattern value="com.example.a2340project.model.DatabaseHelper" />
+    <pattern value="com.example.a2340project.model.Repository" method="getNextUniqueID" />
+    <pattern value="com.example.a2340project.HaoranTest" />
+    <pattern value="com.example.a2340project.views.login" />
+    <pattern value="com.example.a2340project.model.DatabaseHelper" method="onUpgrade" />
+    <pattern value="com.example.a2340project.model.PlayerInteractor" method="PlayerInteractor" />
+    <pattern value="com.example.a2340project.model.Repository" />
+    <pattern value="com.example.a2340project.AnthonyTest" method="setUp" />
+    <pattern value="com.example.a2340project.AnthonyTest" method="test_setHullStrength" />
+    <pattern value="com.example.a2340project.AnthonyTest" method="test_updatePlayer" />
+    <pattern value="com.example.a2340project.HaoranTest" method="testToggleBag" />
+    <pattern value="com.example.a2340project.HaoranTest" method="testTwoClick" />
+    <pattern value="com.example.a2340project.views.login" method="onCreate" />
+    <pattern value="com.example.a2340project.views.login" method="onStart" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

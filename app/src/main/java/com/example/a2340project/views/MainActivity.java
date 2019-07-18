@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
 
     private MediaPlayer bgm;
     private MediaPlayer selectFX;
-    private TextView olduser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button playButton = findViewById(R.id.playButton);
-        olduser = findViewById(R.id.oldplayer);
+        TextView olduser = findViewById(R.id.oldplayer);
 
         bgm = MediaPlayer.create(this, R.raw.title);
         bgm.setLooping(true);
@@ -52,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent loginIntent = new Intent(getApplicationContext(), login.class);
+                bgm.release();
                 startActivity(loginIntent);
             }
         });

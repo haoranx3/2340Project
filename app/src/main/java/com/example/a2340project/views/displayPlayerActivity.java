@@ -38,7 +38,7 @@ public class displayPlayerActivity extends AppCompatActivity {
 
     private MediaPlayer selectFX;
 
-    DatabaseHelper helper = new DatabaseHelper(this);
+    private final DatabaseHelper helper = new DatabaseHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +93,8 @@ public class displayPlayerActivity extends AppCompatActivity {
 
                 int[] arr = new int[0];
                 helper.insertPlayer(player);
-                Intent createRegionIntent = new Intent(getApplicationContext(), createRegionActivity.class);
+                Intent createRegionIntent = new Intent(getApplicationContext(),
+                        createRegionActivity.class);
                 createRegionIntent.putExtra("array", arr);
                 createRegionIntent.putExtra("name", username);
                 startActivity(createRegionIntent);

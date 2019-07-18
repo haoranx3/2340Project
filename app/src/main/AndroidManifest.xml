@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:fullBackupContent="@xml/backup_descriptor">
-        <activity android:name=".views.login"></activity>
+        <activity android:name=".views.login" />
         <activity
             android:name=".views.createRegionActivity">
         </activity>

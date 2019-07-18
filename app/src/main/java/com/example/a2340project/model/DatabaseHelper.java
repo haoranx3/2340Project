@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.a2340project.entity.Player;
 
+@SuppressWarnings("ALL")
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 6;
     private static final String DATABASE_NAME = "players.database";
@@ -29,12 +30,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_BIGMUSHROOM = "bigmushroom";
     private static final String COLUMN_POKEBALL = "pokeball";
     private static final String COLUMN_POKEDOLLARS = "pokedollars";
-    SQLiteDatabase db;
+    private SQLiteDatabase db;
 
     private static final String TABLE_CREATE = "create table players (id integer primary key   ," +
             "username text , sailorpoints int , trainerpoints int , traderpoints int , "
             + "engineerpoints int, freshwater int, scarf int, berries int," +
-            "nuggets int, pokedoll int, pokemon int, potion int, tm int, bigmushroom int, pokeball int," +
+            "nuggets int, pokedoll int, pokemon int, potion int, tm int, bigmushroom int," +
+            " pokeball int," +
             "pokedollars int );";
 
     public DatabaseHelper(Context context) {
@@ -76,6 +78,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.insert(TABLE_NAME, null, values);
         db.close();
+        cursor.close();
     }
 
     public void upDatePlayer(int id, int freshwater, int scarf, int berries, int nuggets,
@@ -162,6 +165,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 }
             } while(cursor.moveToNext());
         }
+        cursor.close();
         return arr;
     }
 

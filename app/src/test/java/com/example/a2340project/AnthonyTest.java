@@ -25,7 +25,7 @@ public class AnthonyTest {
     @Before
     public void setUp() {
         for (int i = 0; i < 10; i++) {
-            Player p = new Player("Player", "diff", 0, 0, 0,0);
+            Player p = new Player("Player", "diff", 0, 0, 0,0,0);
             viewModel.addPlayer(p);
             p.setId(i);
         }
@@ -36,7 +36,7 @@ public class AnthonyTest {
      */
     @Test
     public void test_updatePlayer() {
-        Player p = new Player("Anthony", "diff", 0, 0, 0, 0);
+        Player p = new Player("Anthony", "diff", 0, 0, 0, 0,0);
         p.setId(2);
         viewModel.updatePlayer(p);
         assertEquals(p.getUsername(), viewModel.getAllPlayers().get(2).getUsername());

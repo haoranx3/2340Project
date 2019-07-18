@@ -29,9 +29,11 @@ public class Player {
      * @param trainer points
      * @param trader points
      * @param engineer points
+     * @param id id
      */
     @SuppressWarnings("ConstructorWithTooManyParameters")
-    public Player(String name, String diff, int sailor, int trainer, int trader, int engineer, int id) {
+    public Player(String name, String diff, int sailor, int trainer, int trader, int engineer,
+                  int id) {
         username = name;
         difficulty = diff;
         sailorPoints = sailor;

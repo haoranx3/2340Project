@@ -28,7 +28,7 @@ import com.example.a2340project.viewmodels.CreatePlayerViewModel;
  * createRegionActivity class
  */
 
-@SuppressWarnings({"OverlyComplexMethod", "OverlyLongMethod"})
+@SuppressWarnings("ALL")
 public class createRegionActivity extends AppCompatActivity {
 
     private HorizontalScrollView map;
@@ -132,7 +132,7 @@ public class createRegionActivity extends AppCompatActivity {
     private Button toggleBag;
     private Button toggleMap;
 
-    DatabaseHelper helper = new DatabaseHelper(this);
+    private final DatabaseHelper helper = new DatabaseHelper(this);
 
     @SuppressWarnings("OverlyLongMethod")
     @Override
@@ -269,7 +269,7 @@ public class createRegionActivity extends AppCompatActivity {
             player.getShip().setCargo(9, arrInfo[13]);
             player.setPokeDollars(arrInfo[14]);
         }
-        player.setCurrentRegion(regions[random.nextInt(12)]);
+        player.setCurrentRegion(regions[random.nextInt(13)]);
 
         configure();
 
