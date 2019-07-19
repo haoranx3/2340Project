@@ -48,8 +48,13 @@ public class AnthonyTest {
     @Test
     public void test_setHullStrength() {
         Ship testShip = new Ship(ShipEnum.Ship);
+        int i = 0;
         while (testShip.getHullStrength() > 0) {
             testShip.setHullStrength(testShip.getHullStrength() - 33);
+            i -= 33;
+            if (i > 0) {
+                assertEquals(i, testShip.getHullStrength());
+            }
         }
         assertEquals(0, testShip.getHullStrength());
     }
